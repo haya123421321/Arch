@@ -8,6 +8,7 @@ cd yay-git
 makepkg -si
 yay -S --noconfirm zsh-theme-powerlevel10k-git
 
+cd ~
 git clone https://github.com/haya123421321/Arch
 sudo cat Arch/zshrc > ~/.zshrc
 sudo cat Arch/p10k.zsh > ~/.p10k.zsh
