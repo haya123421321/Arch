@@ -1,5 +1,5 @@
 sudo pacman -Syyu
-sudo pacman -S base-devel binutils zsh gcc git make zsh zsh-completions zsh-syntax-highlighting vim
+sudo pacman -S base-devel binutils zsh gcc git make zsh-completions zsh-syntax-highlighting vim
 
 cd /opt
 sudo git clone https://aur.archlinux.org/yay-git.git
