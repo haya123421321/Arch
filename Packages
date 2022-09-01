@@ -1,4 +1,4 @@
-sudo update -y && sudo upgrade -y
+sudo pacman -Syyu
 sudo pacman -S base-devel binutils zsh gcc git make zsh zsh-completions zsh-syntax-highlighting vim
 
 cd /opt
