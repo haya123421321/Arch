@@ -1,7 +1,7 @@
 sudo pacman -Syyu
 sudo pacman -S base-devel binutils zsh gcc git make zsh-completions zsh-syntax-highlighting vim
 
-echo 'download yay and Powerlevel10k theme
+echo 'download yay and Powerlevel10k theme'
 cd /opt
 sudo git clone https://aur.archlinux.org/yay-git.git
 sudo chown -R $(whoami):$(whoami) ./yay-git
