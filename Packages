@@ -1,6 +1,7 @@
 sudo pacman -Syyu
 sudo pacman -S base-devel binutils tff-droid zsh gcc git make zsh-completions zsh-syntax-highlighting vim --noconfirm
 
+fc-cache
 echo 'download yay and Powerlevel10k theme'
 cd /opt
 sudo git clone https://aur.archlinux.org/yay-git.git
