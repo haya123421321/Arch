@@ -1,5 +1,5 @@
 sudo pacman -Syyu
-sudo pacman -S base-devel binutils droid zsh gcc git make zsh-completions zsh-syntax-highlighting vim --noconfirm
+sudo pacman -S base-devel binutils tff-droid zsh gcc git make zsh-completions zsh-syntax-highlighting vim --noconfirm
 
 echo 'download yay and Powerlevel10k theme'
 cd /opt
