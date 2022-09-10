@@ -3,7 +3,7 @@ User=$(whoami)
 
 echo "$password" | sudo -S sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 echo "$password" | sudo -S pacman -Syyu --noconfirm
-echo "$password" | sudo -S pacman -S base-devel binutils linux-headers zsh gcc git make zsh-completions zsh-syntax-highlighting vim --noconfirm
+echo "$password" | sudo -S pacman -S base-devel steam discord bitwarden dolphin binutils linux-headers zsh gcc git make zsh-completions zsh-syntax-highlighting vim --noconfirm
 
 fc-cache
 echo 'downloading yay and Powerlevel10k theme'
