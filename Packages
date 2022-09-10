@@ -12,7 +12,7 @@ echo "$password" | sudo -S git clone https://aur.archlinux.org/yay-git.git
 echo "$password" | sudo -S chown -R $User:$User ./yay-git
 cd yay-git
 echo "Y" | makepkg -si
-yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4
+yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 freedownloadmanager
 
 cd ~
 git clone https://haya123421321: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@github.com/haya123421321/Arch
