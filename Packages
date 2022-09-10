@@ -17,7 +17,7 @@ yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4
 cd ~
 git clone https://haya123421321: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@github.com/haya123421321/Arch
 echo "$password" | sudo -S cat Arch/zshrc > ~/.zshrc
-echp "$password" | sudo -S cat Arch/p10k.zsh > ~/.p10k.zsh
+echo "$password" | sudo -S cat Arch/p10k.zsh > ~/.p10k.zsh
 echo "$password" | sudo -S rm -R Arch
 echo 'change shell to zsh'
 printf "$password\n/bin/zsh" | chsh
