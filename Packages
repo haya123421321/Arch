@@ -21,4 +21,4 @@ echo 'change shell to zsh'
 printf "$password\n/bin/zsh" | chsh
 
 echo "Taskbar icons: <WebBrowser> Steam Discord Bitwarden Dolphin SystemSettings SystemMonitor" > Taskbar
-echo "Desktop: <WebBroser> Steam Discord Dolphin"
+echo "Desktop: <WebBroser> Steam Discord Dolphin" > Desktop
