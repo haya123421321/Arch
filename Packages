@@ -19,3 +19,6 @@ echo "$password" | sudo -S cat Arch/zshrc > ~/.zshrc
 echp "$password" | sudo -S cat Arch/p10k.zsh > ~/.p10k.zsh
 echo 'change shell to zsh'
 printf "$password\n/bin/zsh" | chsh
+
+echo "Taskbar icons: <WebBrowser> Steam Discord Bitwarden Dolphin SystemSettings SystemMonitor" > Taskbar
+echo "Desktop: <WebBroser> Steam Discord Dolphin"
