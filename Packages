@@ -6,7 +6,6 @@ echo "$password" | sudo -S pacman -Syyu --noconfirm
 echo "$password" | sudo -S pacman -S base-devel steam discord bitwarden dolphin binutils linux-headers zsh gcc git make zsh-completions zsh-syntax-highlighting vim --noconfirm
 
 fc-cache
-echo 'downloading yay and Powerlevel10k theme'
 cd /opt
 echo "$password" | sudo -S git clone https://aur.archlinux.org/yay-git.git
 echo "$password" | sudo -S chown -R $User:$User ./yay-git
