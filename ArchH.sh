@@ -27,7 +27,6 @@ echo "$password" | sudo -S cat Arch/zshrc > ~/.zshrc
 echo "$password" | sudo -S cat Arch/p10k.zsh > ~/.p10k.zsh
 mkdir -p ~/.config/fontconfig/conf.d
 cat Arch/1-fonts.conf > ~/.config/fontconfig/conf.d/1-fonts.conf
-echo "$password" | sudo -S cp Arch/1920x1080.jpg /usr/share/wallpapers/Next/contents/images/1920x1080.jpg
 echo 'change shell to zsh'
 printf "$password\n/bin/zsh" | chsh
 echo "$password" | sudo -S rm -R Arch
