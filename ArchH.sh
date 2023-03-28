@@ -1,3 +1,5 @@
+#!/bin/bash
+
 read -p "Type your password for sudo: " password
 User=$(whoami)
 
