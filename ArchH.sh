@@ -26,6 +26,8 @@ echo "$password" | sudo -S cat Arch/zshrc > ~/.zshrc
 echo "$password" | sudo -S cat Arch/p10k.zsh > ~/.p10k.zsh
 mkdir -p ~/.config/fontconfig/conf.d
 cat Arch/1-fonts.conf > ~/.config/fontconfig/conf.d/1-fonts.conf
+mkdir .config/terminator
+cat Arch/Terminator_config.txt > .config/terminator/config
 echo 'change shell to zsh'
 printf "$password\n/bin/zsh" | chsh
 echo "$password" | sudo -S rm -R Arch
