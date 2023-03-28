@@ -9,7 +9,7 @@ echo "$password" | sudo -S ./strap.sh
 rm strap.sh
 
 echo "$password" | sudo -S pacman -Syyu --noconfirm
-echo "$password" | sudo -S pacman -S base noto-fonts-emoji virtualbox virtualbox-guest-utils  vlc base-devel fontconfig ttf-droid shotwell dolphin binutils linux-headers zsh gcc git make zsh-completions zsh-syntax-highlighting vimnmap freerdp2-x11 wireshark aircrack-ng wget gdb vim man sqlmap python2 nfs-common ruby-full terminator binwalk steghide exiftool ffuf hydra hashcat ftp python3-pip hashid net-tools --noconfirm
+echo "$password" | sudo -S pacman -S base noto-fonts-emoji virtualbox virtualbox-guest-utils  vlc base-devel fontconfig ttf-droid shotwell dolphin binutils linux-headers zsh gcc git make zsh-completions zsh-syntax-highlighting vimnmap freerdp2-x11 wireshark aircrack-ng wget gdb vim man sqlmap python2  ruby-irb-full terminator binwalk steghide perl-image-exiftool inetutils curlftpfs ffuf hydra hashcat ftp python-pip python2-pip hashid net-tools --noconfirm
 
 fc-cache
 cd /opt
