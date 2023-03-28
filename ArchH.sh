@@ -10,7 +10,7 @@ rm strap.sh
 
 echo "$password" | sudo -S pacman -Syyu --noconfirm
 #echo "$password" | sudo -S pacman -S git --noconfirm
-echo "$password" | sudo -S pacman -S git base noto-fonts-emoji virtualbox virtualbox-guest-utils vlc base-devel fontconfig ttf-droid shotwell dolphin binutils linux-headers zsh gcc make zsh-completions zsh-syntax-highlighting nmap freerdp wireshark-qt aircrack-ng wget gdb vim man sqlmap python2 ruby-irb terminator binwalk steghide perl-image-exiftool inetutils curlftpfs ffuf hydra hashcat python-pip python2-pip hashid net-tools --noconfirm
+echo "$password" | sudo -S pacman -S git firefox base noto-fonts-emoji virtualbox virtualbox-guest-utils vlc base-devel fontconfig ttf-droid shotwell dolphin binutils linux-headers zsh gcc make zsh-completions zsh-syntax-highlighting nmap freerdp wireshark-qt aircrack-ng wget gdb vim man sqlmap python2 ruby-irb terminator binwalk steghide perl-image-exiftool inetutils curlftpfs ffuf hydra hashcat python-pip python2-pip hashid net-tools --noconfirm
 
 fc-cache
 cd /opt
@@ -31,4 +31,4 @@ echo 'change shell to zsh'
 printf "$password\n/bin/zsh" | chsh
 echo "$password" | sudo -S rm -R Arch
 
-echo "Taskbar icons: <WebBrowser> Dolphin SystemSettings SystemMonitor" > TaskbarIcons
+echo "Taskbar icons: Firefox Dolphin SystemSettings SystemMonitor" > TaskbarIcons
