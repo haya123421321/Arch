@@ -1,6 +1,11 @@
 read -p "Type your password for sudo: " password
 User=$(whoami)
 
+echo "$password" | sudo -S sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
+curl -O https://blackarch.org/strap.sh;chmod +x strap.sh
+echo "$password" | sudo -S ./strap.sh
+rm strap.sh
+
 echo "$password" | sudo -S pacman -Syyu --noconfirm
 echo "$password" | sudo -S pacman -S base noto-fonts-emoji virtualbox virtualbox-guest-utils  vlc base-devel fontconfig ttf-droid shotwell dolphin binutils linux-headers zsh gcc git make zsh-completions zsh-syntax-highlighting vim --noconfirm # Downloading useful packages.
 echo "$password" | sudo -S pacman -S nmap freerdp2-x11 wireshark aircrack-ng wget gdb vim man sqlmap python2 nfs-common ruby-full terminator binwalk steghide exiftool ffuf hydra hashcat ftp python3-pip hashid net-tools --noconfirm # Tools
