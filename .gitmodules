@@ -4,3 +4,6 @@
 [submodule "Tepz/OSINT/sherlock"]
 	path = Tepz/OSINT/sherlock
 	url = https://github.com/sherlock-project/sherlock/
+[submodule "Tepz/Recon/theHarvester"]
+	path = Tepz/Recon/theHarvester
+	url = https://github.com/laramies/theHarvester
