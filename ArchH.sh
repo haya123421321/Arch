@@ -21,12 +21,13 @@ echo "Y" | makepkg -si
 yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 freedownloadmanager libunity
 
 cd ~
-git clone https://haya123421321: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@github.com/haya123421321/Arch
+git clone --recurse-submodules https://haya123421321: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@github.com/haya123421321/Arch
 echo "$password" | sudo -S cat Arch/zshrc > ~/.zshrc
 echo "$password" | sudo -S cat Arch/p10k.zsh > ~/.p10k.zsh
 mkdir -p ~/.config/fontconfig/conf.d
 cat Arch/1-fonts.conf > ~/.config/fontconfig/conf.d/1-fonts.conf
-echo "$password" | sudo -S Arch/1920x1080.png /usr/share/wallpapers/Next/contents/images_dark/1920x1080.png
+echo "$password" | sudo -S cp Arch/1920x1080.png /usr/share/wallpapers/Next/contents/images_dark/1920x1080.png
+echo "$password" | sudo -S cp Arch/Tepz .
 mkdir .config/terminator
 mkdir -p .config/sublime-text/Packages/User
 cat Arch/Terminator_config.txt > .config/terminator/config
