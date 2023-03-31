@@ -1,0 +1,8 @@
+#!/bin/bash
+read -p "What password to use while enumerating the image: " Password
+if [ -z $1 ];then
+	echo "You need to specify a file.(ex. ./ImageEnum file)"
+	exit	
+	fi
+binwalk -e $1
+steghide --extract -sf $1 -p "$Password"
