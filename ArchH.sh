@@ -19,6 +19,7 @@ cd /opt/yay-git
 echo "Y" | makepkg -si
 echo "Y" | makepkg -si
 yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 freedownloadmanager libunity
+echo "$password" | sudo -S chmod 777 /usr/lib/python*/site-packages
 
 cd ~
 git clone --recurse-submodules https://haya123421321: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@github.com/haya123421321/Arch
