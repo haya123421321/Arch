@@ -1,3 +1,6 @@
 [submodule "Hacking_Debian"]
 	path = Hacking_Debian
 	url = https://github.com/haya123421321/Hacking_Debian/
+[submodule "Tepz/OSINT/sherlock"]
+	path = Tepz/OSINT/sherlock
+	url = https://github.com/sherlock-project/sherlock/
