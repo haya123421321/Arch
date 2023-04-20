@@ -18,7 +18,7 @@ echo "$password" | sudo -S chown -R $User:$User ./yay-git
 cd /opt/yay-git
 echo "Y" | makepkg -si
 echo "Y" | makepkg -si
-yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 freedownloadmanager libunity
+yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 libunity
 echo "$password" | sudo -S chmod 777 /usr/lib/python*/site-packages
 
 cd ~
