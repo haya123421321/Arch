@@ -7,3 +7,9 @@
 [submodule "Tepz/Recon/theHarvester"]
 	path = Tepz/Recon/theHarvester
 	url = https://github.com/laramies/theHarvester
+[submodule "KaliLists"]
+	path = KaliLists
+	url = https://github.com/3ndG4me/KaliLists/
+[submodule "SecLists"]
+	path = SecLists
+	url = https://github.com/danielmiessler/SecLists/
