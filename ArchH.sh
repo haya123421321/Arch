@@ -43,3 +43,4 @@ printf "$password\n/bin/zsh" | chsh
 echo "$password" | sudo -S rm -R Arch
 
 echo "Taskbar icons: Firefox Dolphin SystemSettings SystemMonitor" > TaskbarIcons
+echo "Get Bitwarden, FoxyProxy and Hackbar" > Firefox_extension
