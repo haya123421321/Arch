@@ -30,5 +30,5 @@ echo 'change shell to zsh'
 printf "$password\n/bin/zsh" | chsh
 echo "$password" | sudo -S rm -R Arch
 
-echo "Taskbar icons: <WebBrowser> Spotify Steam Discord Bitwarden Dolphin SystemSettings SystemMonitor" > TaskbarIcons
+echo "Taskbar icons: <WebBrowser> Steam Spotify Discord Bitwarden Dolphin SystemSettings SystemMonitor" > TaskbarIcons
 echo "Desktop: <WebBroser> Steam Discord Dolphin VirtualBox" > DesktopIcons
