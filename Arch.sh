@@ -23,7 +23,6 @@ echo "$password" | sudo -S cat Arch/p10k.zsh > ~/.p10k.zsh
 mkdir -p ~/.config/fontconfig/conf.d
 cat Arch/1-fonts.conf > ~/.config/fontconfig/conf.d/1-fonts.conf
 echo "$password" | sudo -S Arch/1920x1080.png /usr/share/wallpapers/Next/contents/images_dark/1920x1080.png
-mkdir .config/terminator
 mkdir -p .config/sublime-text/Packages/User
 cat Arch/Keybinds.txt > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
 cat Arch/Settings.txt > .config/sublime-text/Packages/User/Preferences.sublime-settings
