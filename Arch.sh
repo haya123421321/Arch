@@ -30,5 +30,106 @@ echo 'change shell to zsh'
 printf "$password\n/bin/zsh" | chsh
 echo "$password" | sudo -S rm -R Arch
 
+mkdir ~/.config/autostart
+discord="[Desktop Entry]\n\
+Categories=Network;InstantMessaging;\n\
+Comment=All-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone.\n\
+Exec=$(which discord)\n\
+GenericName=Internet Messenger\n\
+Icon=discord\n\
+Name=Discord\n\
+Path=$(dirname $(which discord))\n\
+StartupWMClass=discord\n\
+Type=Application\n\
+"
+
+FDM="[Desktop Entry]\n\
+Comment=Free Download Manager\n\
+Exec=$(which fdm) --hidden\n\
+Hidden=false\n\
+Name=FDM\n\
+NoDisplay=false\n\
+Type=Application\n\
+X-GNOME-Autostart-enabled=true\n\
+"
+
+steam="Exec=steam steam://open/bigpicture\n\
+Name=Big Picture\n\
+\n\
+[Desktop Action Community]\n\
+Exec=steam steam://url/SteamIDControlPage\n\
+Name=Community\n\
+\n\
+[Desktop Action Friends]\n\
+Exec=steam steam://open/friends\n\
+Name=Friends\n\
+\n\
+[Desktop Action Library]\n\
+Exec=steam steam://open/games\n\
+Name=Library\n\
+\n\
+[Desktop Action News]\n\
+Exec=steam steam://open/news\n\
+Name=News\n\
+\n\
+[Desktop Action Screenshots]\n\
+Exec=steam steam://open/screenshots\n\
+Name=Screenshots\n\
+\n\
+[Desktop Action Servers]\n\
+Exec=steam steam://open/servers\n\
+Name=Servers\n\
+\n\
+[Desktop Action Settings]\n\
+Exec=steam steam://open/settings\n\
+Name=Settings\n\
+\n\
+[Desktop Action Store]\n\
+Exec=steam steam://store\n\
+Name=Store\n\
+\n\
+[Desktop Entry]\n\
+Actions=Store;Community;Library;Servers;Screenshots;News;Settings;BigPicture;Friends;\n\
+Categories=Network;FileTransfer;Game;\n\
+Comment=Application for managing and playing games on Steam\n\
+Exec=$(which steam-runtime) %U\n\
+Icon=steam\n\
+MimeType=x-scheme-handler/steam;x-scheme-handler/steamlink;\n\
+Name=Steam (Runtime)\n\
+PrefersNonDefaultGPU=true\n\
+Terminal=false\n\
+Type=Application\n\
+X-KDE-RunOnDiscreteGpu=true\n\
+"
+
+spotify="[Desktop Entry]\n\
+Categories=Audio;Music;Player;AudioVideo;\n\
+Exec=$(which spotify-launcher) %U\n\
+GenericName=Music Player\n\
+Icon=spotify-launcher\n\
+MimeType=x-scheme-handler/spotify;\n\
+Name=Spotify (Launcher)\n\
+StartupWMClass=spotify\n\
+Terminal=false\n\
+TryExec=$(which spotify-launcher)\n\
+Type=Application\n\
+"
+
+nvidia="[Desktop Entry]\n\
+Exec=nvidia-settings --load-config-only\n\
+Icon=nvidia-settings\n\
+Name=NVIDIA X Server Settings\n\
+Path=\n\
+Terminal=False\n\
+Type=Application\n\
+"
+
+echo -e "$discord" > ~/.config/autostart/discord.desktop
+echo -e "$FDM" > ~/.config/autostart/FDM.desktop
+echo -e "$steam" > ~/.config/autostart/steam.desktop
+echo -e "$spotify" > ~/.config/autostart/spotify.desktop
+echo -e "$nvidia" > ~/.config/autostart/'NVIDIA X Server Settings.desktop'
+
+
 echo "Taskbar icons: <WebBrowser> Steam Spotify Discord Bitwarden Dolphin SystemSettings SystemMonitor Konsole" > TaskbarIcons
 echo "Desktop: <WebBroser> Steam Discord Dolphin VirtualBox" > DesktopIcons
