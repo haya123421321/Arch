@@ -31,6 +31,7 @@ echo "Installed yay AUR helper."
 # Install AUR packages using yay
 yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 freedownloadmanager libunity google-chrome sddm-slice-git > /dev/null 2>&1
 echo "Installed AUR packages using yay."
+sudo -S chmod 777 /usr/lib/python*/site-packages
 
 # Clone configuration files from GitHub repository
 cd ~
