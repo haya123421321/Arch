@@ -25,7 +25,7 @@ cd /opt
 echo "$password" | sudo -S git clone https://aur.archlinux.org/yay-git.git > /dev/null 2>&1
 echo "$password" | sudo -S chown -R $User:$User ./yay-git
 cd /opt/yay-git
-echo "Y" | makepkg -si > /dev/null 2>&1
+yes | makepkg -si > /dev/null 2>&1
 echo "Installed yay AUR helper."
 
 # Install AUR packages using yay
