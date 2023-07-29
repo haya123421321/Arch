@@ -22,7 +22,7 @@ yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 libunity
 echo "$password" | sudo -S chmod 777 /usr/lib/python*/site-packages
 
 cd ~
-git clone --recurse-submodules https://haya123421321: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@github.com/haya123421321/Arch
+git clone --recurse-submodules https://github.com/haya123421321/Arch.git
 echo "$password" | sudo -S cat Arch/zshrc > ~/.zshrc
 echo "$password" | sudo -S cat Arch/p10k.zsh > ~/.p10k.zsh
 mkdir -p ~/.config/fontconfig/conf.d
