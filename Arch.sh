@@ -1,42 +1,70 @@
 #!/bin/bash
 
+# Prompt the user for the sudo password
 read -p "Type your password for sudo: " password
+
+# Get the current user
 User=$(whoami)
 
+# Update pacman.conf to enable multilib repository
 echo "$password" | sudo -S sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
-echo "$password" | sudo -S pacman -Syyu --noconfirm
-echo "$password" | sudo -S pacman -S base noto-fonts-emoji virtualbox virtualbox-guest-utils wine sqlitebrowser lutris spotify-launcher vlc base-devel fontconfig ttf-droid shotwell steam discord bitwarden dolphin binutils linux-headers zsh gcc ntfs-3g git make zsh-completions zsh-syntax-highlighting vim --noconfirm
+echo "Enabled multilib repository in pacman.conf."
 
+# Update system and install packages
+echo "$password" | sudo -S pacman -Syyu --noconfirm > /dev/null
+echo "$password" | sudo -S pacman -S base noto-fonts-emoji virtualbox virtualbox-guest-utils wine sqlitebrowser lutris spotify-launcher vlc base-devel fontconfig ttf-droid shotwell steam discord bitwarden dolphin binutils linux-headers zsh gcc ntfs-3g git make zsh-completions zsh-syntax-highlighting vim --noconfirm > /dev/null
+echo "Updated system and installed packages."
+
+# Update font cache
 fc-cache
+echo "Updated font cache."
+
+# Install yay AUR helper
 cd /opt
-echo "$password" | sudo -S git clone https://aur.archlinux.org/yay-git.git
+echo "$password" | sudo -S git clone https://aur.archlinux.org/yay-git.git > /dev/null
 echo "$password" | sudo -S chown -R $User:$User ./yay-git
 cd /opt/yay-git
-echo "Y" | makepkg -si
-echo "Y" | makepkg -si
-yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 freedownloadmanager libunity google-chrome sddm-slice-git
+echo "Y" | makepkg -si > /dev/null
+echo "Installed yay AUR helper."
 
+# Install AUR packages using yay
+yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 freedownloadmanager libunity google-chrome sddm-slice-git > /dev/null
+echo "Installed AUR packages using yay."
+
+# Clone configuration files from GitHub repository
 cd ~
-git clone https://haya123421321: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@github.com/haya123421321/Arch
+git clone https://github.com/haya123421321/Arch.git > /dev/null
+
+# Copy configuration files to the appropriate locations
 echo "$password" | sudo -S cat Arch/zshrc > ~/.zshrc
 echo "$password" | sudo -S cat Arch/p10k.zsh > ~/.p10k.zsh
 mkdir -p ~/.config/fontconfig/conf.d
 cat Arch/1-fonts.conf > ~/.config/fontconfig/conf.d/1-fonts.conf
 echo "$password" | sudo -S mv Arch/1920x1080.png /usr/share/wallpapers/Next/contents/images_dark/1920x1080.png
-mkdir -p .config/sublime-text/Packages/User
+mkdir -p ~/.config/sublime-text/Packages/User
 cat Arch/Keybinds.txt > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
 cat Arch/Settings.txt > .config/sublime-text/Packages/User/Preferences.sublime-settings
-echo 'change shell to zsh'
-printf "$password\n/bin/zsh" | chsh
-echo "$password" | sudo -S rm -R Arch
+echo "Copied configuration files."
 
+# Change default shell to Zsh
+echo 'change shell to zsh'
+printf "$password\n/bin/zsh" | chsh > /dev/null
+echo "Changed default shell to Zsh."
+
+# Clean up cloned repository
+echo "$password" | sudo -S rm -R Arch
+echo "Cleaned up cloned repository."
+
+# Set SDDM theme to 'slice'
 if [ -f /etc/sddm.conf ]; then
     sudo sed -i "/^\[Theme\]/,/^\[/ s/^Current=.*/Current=slice/" /etc/sddm.conf
 else
-    echo -e "[Theme]\nCurrent=slice" | sudo tee /etc/sddm.conf
+    echo -e "[Theme]\nCurrent=slice" | sudo tee /etc/sddm.conf > /dev/null
 fi
+echo "Set SDDM theme to 'slice'."
 
-mkdir ~/.config/autostart
+# Set up autostart entries for various applications
+mkdir -p ~/.config/autostart
 discord="[Desktop Entry]\n\
 Categories=Network;InstantMessaging;\n\
 Comment=All-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone.\n\
@@ -135,8 +163,8 @@ echo -e "$FDM" > ~/.config/autostart/FDM.desktop
 echo -e "$steam" > ~/.config/autostart/steam.desktop
 echo -e "$spotify" > ~/.config/autostart/spotify.desktop
 echo -e "$nvidia" > ~/.config/autostart/'NVIDIA X Server Settings.desktop'
+echo "Configured autostart entries for applications."
 
-
+# Create Taskbar and Desktop icon configuration files
 echo "Taskbar icons: <WebBrowser> Steam Spotify Discord Bitwarden Dolphin SystemSettings SystemMonitor Konsole" > TaskbarIcons
 echo "Desktop: <WebBroser> Steam Discord Dolphin VirtualBox" > DesktopIcons
-
