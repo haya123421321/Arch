@@ -12,7 +12,7 @@ echo "Enabled multilib repository in pacman.conf."
 
 # Update system and install packages
 echo "Installing and updating the packages"
-echo "$password" | sudo -S pacman -Syyu --noconfirm > /dev/null
+echo "$password" | sudo -S pacman -Syyu --noconfirm > /dev/null 2>&1
 echo "$password" | sudo -S pacman -S base noto-fonts-emoji virtualbox virtualbox-guest-utils wine sqlitebrowser lutris spotify-launcher vlc base-devel fontconfig ttf-droid shotwell steam discord bitwarden dolphin binutils linux-headers zsh gcc ntfs-3g git make zsh-completions zsh-syntax-highlighting vim --noconfirm > /dev/null 2>&1
 echo "Updated system and installed packages."
 
@@ -22,19 +22,19 @@ echo "Updated font cache."
 
 # Install yay AUR helper
 cd /opt
-echo "$password" | sudo -S git clone https://aur.archlinux.org/yay-git.git > /dev/null
+echo "$password" | sudo -S git clone https://aur.archlinux.org/yay-git.git > /dev/null 2>&1
 echo "$password" | sudo -S chown -R $User:$User ./yay-git
 cd /opt/yay-git
-echo "Y" | makepkg -si > /dev/null
+echo "Y" | makepkg -si > /dev/null 2>&1
 echo "Installed yay AUR helper."
 
 # Install AUR packages using yay
-yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 freedownloadmanager libunity google-chrome sddm-slice-git > /dev/null
+yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 freedownloadmanager libunity google-chrome sddm-slice-git > /dev/null 2>&1
 echo "Installed AUR packages using yay."
 
 # Clone configuration files from GitHub repository
 cd ~
-git clone https://github.com/haya123421321/Arch.git > /dev/null
+git clone https://github.com/haya123421321/Arch.git > /dev/null 2>&1
 
 # Copy configuration files to the appropriate locations
 echo "$password" | sudo -S cat Arch/zshrc > ~/.zshrc
@@ -49,7 +49,7 @@ echo "Copied configuration files."
 
 # Change default shell to Zsh
 echo 'change shell to zsh'
-printf "$password\n/bin/zsh" | chsh > /dev/null
+printf "$password\n/bin/zsh" | chsh > /dev/null 2>&1
 echo "Changed default shell to Zsh."
 
 # Clean up cloned repository
@@ -60,7 +60,7 @@ echo "Cleaned up cloned repository."
 if [ -f /etc/sddm.conf ]; then
     sudo sed -i "/^\[Theme\]/,/^\[/ s/^Current=.*/Current=slice/" /etc/sddm.conf
 else
-    echo -e "[Theme]\nCurrent=slice" | sudo tee /etc/sddm.conf > /dev/null
+    echo -e "[Theme]\nCurrent=slice" | sudo tee /etc/sddm.conf > /dev/null 2>&1
 fi
 echo "Set SDDM theme to 'slice'."
 
