@@ -169,3 +169,5 @@ echo "Configured autostart entries for applications."
 # Create Taskbar and Desktop icon configuration files
 echo "Taskbar icons: <WebBrowser> Steam Spotify Discord Bitwarden Dolphin SystemSettings SystemMonitor Konsole" > TaskbarIcons
 echo "Desktop: <WebBroser> Steam Discord Dolphin VirtualBox" > DesktopIcons
+
+echo "Finished!"
