@@ -14,7 +14,7 @@ echo "$password" | sudo -S chown -R $User:$User ./yay-git
 cd /opt/yay-git
 echo "Y" | makepkg -si
 echo "Y" | makepkg -si
-yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 freedownloadmanager libunity google-chrome
+yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 freedownloadmanager libunity google-chrome sddm-slice-git
 
 cd ~
 git clone https://haya123421321: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@github.com/haya123421321/Arch
@@ -29,6 +29,12 @@ cat Arch/Settings.txt > .config/sublime-text/Packages/User/Preferences.sublime-s
 echo 'change shell to zsh'
 printf "$password\n/bin/zsh" | chsh
 echo "$password" | sudo -S rm -R Arch
+
+if [ -f /etc/sddm.conf ]; then
+    sudo sed -i "/^\[Theme\]/,/^\[/ s/^Current=.*/Current=slice/" /etc/sddm.conf
+else
+    echo -e "[Theme]\nCurrent=slice" | sudo tee /etc/sddm.conf
+fi
 
 mkdir ~/.config/autostart
 discord="[Desktop Entry]\n\
@@ -133,3 +139,4 @@ echo -e "$nvidia" > ~/.config/autostart/'NVIDIA X Server Settings.desktop'
 
 echo "Taskbar icons: <WebBrowser> Steam Spotify Discord Bitwarden Dolphin SystemSettings SystemMonitor Konsole" > TaskbarIcons
 echo "Desktop: <WebBroser> Steam Discord Dolphin VirtualBox" > DesktopIcons
+
