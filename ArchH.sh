@@ -18,6 +18,7 @@ if [[ "$choice" == "N" ]]; then
 elif [[ "$choice" == "Y" ]]; then
     for pkg in "${DesktopEnvs[@]}"; do
         sudo pacman -Rsn "$pkg" --noconfirm > /dev/null 2>&1
+    done
     echo "Other desktop environments have been removed."
 else
     echo "Invalid choice. Please enter 'Y' or 'n'."
