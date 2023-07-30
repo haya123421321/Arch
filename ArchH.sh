@@ -116,7 +116,7 @@ cat Arch/configs/Settings.txt > .config/sublime-text/Packages/User/Preferences.s
 echo "Copied configuration files for Terminator and Sublime Text"
 
 # Change the default shell to Zsh for the current user
-echo 'change shell to zsh'
+echo 'Changing shell to zsh'
 printf "$password\n/bin/zsh" | chsh > /dev/null 2>&1
 echo "Changed default shell to Zsh"
 
