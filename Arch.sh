@@ -172,3 +172,14 @@ echo "Taskbar icons: <WebBrowser> Steam Spotify Discord Bitwarden Dolphin System
 echo "Desktop: <WebBroser> Steam Discord Dolphin VirtualBox" > DesktopIcons
 
 echo "Finished!"
+
+read -p "do you wanna reboot now? [Y/n]" choice
+choice=${choice^^}
+
+if [[ "$choice" == "Y" ]]; then
+    reboot
+elif [[ "$choice" == "N" ]]; then
+    echo "Ok."
+else
+    echo "Invalid choice. Please enter 'Y' or 'n'."
+fi
