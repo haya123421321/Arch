@@ -31,10 +31,12 @@ if $remove_desktop_env; then
         continue
     elif [[ "$choice" == "Y" ]]; then
         sudo pacman -Rsn xfce4 lxde gnome kde plasma cinnamon mate deepin xfce4-goodies --noconfirm > /dev/null 2>&1
+        echo "Other desktop environments have been removed."
+    else
+        echo "Invalid choice. Please enter 'Y' or 'n'."
     fi
+fi
 
-# Echo a message indicating successful completion
-echo "Other desktop environments have been removed."
 
 # Prompt the user to enter their password for sudo access
 read -p "Type your password for sudo: " password
