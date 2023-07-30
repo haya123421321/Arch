@@ -79,7 +79,7 @@ echo "Copied custom Zsh configuration and powerlevel10k theme"
 
 # Copy other custom configurations to their respective directories
 echo "$password" | sudo -S cp -r Arch/Tepz .
-mkdir -p .config/terminator
+##mkdir -p .config/terminator
 mkdir -p .config/sublime-text/Packages/User
 echo "$password" | sudo -S mv Arch/KaliLists Arch/wordlists
 echo "$password" | sudo -S mv Arch/SecLists Arch/wordlists
@@ -97,7 +97,7 @@ mkdir ~/.config/kitty
 cat Arch/configs/kitty.conf > ~/.config/kitty/kitty.conf
 
 # Copy configuration files for Terminator and Sublime Text
-#cat Arch/configs/Terminator_config.txt > .config/terminator/config
+##cat Arch/configs/Terminator_config.txt > .config/terminator/config
 cat Arch/configs/Keybinds.txt > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
 cat Arch/configs/Settings.txt > .config/sublime-text/Packages/User/Preferences.sublime-settings
 echo "Copied configuration files for Terminator and Sublime Text"
