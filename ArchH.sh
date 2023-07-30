@@ -24,10 +24,6 @@ else
     echo "Invalid choice. Please enter 'Y' or 'n'."
 fi
 
-
-
-
-
 # Get the current username
 User=$(whoami)
 
