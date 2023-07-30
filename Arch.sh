@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ "$(id -u)" = "0" ]; then
+    echo "Please do not use sudo to run this script. Run it as a regular user."
+    exit 1
+fi
+
 # Prompt the user for the sudo password
 read -p "Type your password for sudo: " password
 
