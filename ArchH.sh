@@ -104,10 +104,12 @@ mv Arch/Command-injection-bypass Arch/wordlists/SecLists/Payloads
 sudo mv Arch/wordlists /usr/share/
 echo "Moved custom configurations to their respective locations"
 
-# Copy configuration files for Terminator and Sublime Text
-#cat Arch/configs/Terminator_config.txt > .config/terminator/config
+# Setup i3 configs
 cat "Arch/configs/i3 config" > ~/.i3status.conf
 cat Arch/configs/i3status.conf > .config/terminator/config
+
+# Copy configuration files for Terminator and Sublime Text
+#cat Arch/configs/Terminator_config.txt > .config/terminator/config
 cat Arch/configs/Keybinds.txt > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
 cat Arch/configs/Settings.txt > .config/sublime-text/Packages/User/Preferences.sublime-settings
 echo "Copied configuration files for Terminator and Sublime Text"
