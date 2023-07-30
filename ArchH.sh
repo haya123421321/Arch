@@ -6,25 +6,10 @@ if [ "$(id -u)" = "0" ]; then
     exit 1
 fi
 
-package_installed() {
-    pacman -Qi "$1" &>/dev/null
-}
-
-# List of desktop environments to be removed
-desktop_envs=("xfce4" "lxde" "gnome" "kde" "plasma" "cinnamon" "mate" "deepin")
-
-# Check if any of the desktop environments are installed
-remove_desktop_env=false
-for env in "${desktop_envs[@]}"; do
-    if package_installed "$env"; then
-        remove_desktop_env=true
-        break
-    fi
-done
 
 # Prompt the user for confirmation before proceeding
 if $remove_desktop_env; then
-    read -p "We have detected that you have a desktop enviroment installed. Do you want to remove it? [Y/n]: " choice
+    read -p "Do you want to remove your current desktop environment if you have one? [Y/n]: " choice
     choice=${choice^^}
 
     if [[ "$choice" == "N" ]]; then
