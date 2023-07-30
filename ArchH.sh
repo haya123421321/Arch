@@ -108,6 +108,8 @@ echo "Moved custom configurations to their respective locations"
 cat "Arch/configs/i3 config" > ~/.config/i3/config
 cat Arch/configs/i3status.conf > ~/.i3status.conf
 cp Arch/configs/Wallpaper.jpg ~/Pictures
+mkdir ~/.config/kitty
+cat Arch/configs/kitty.conf > ~/.config/kitty/kitty.conf
 
 # Copy configuration files for Terminator and Sublime Text
 #cat Arch/configs/Terminator_config.txt > .config/terminator/config
