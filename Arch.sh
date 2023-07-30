@@ -39,14 +39,13 @@ cd ~
 git clone https://github.com/haya123421321/Arch.git > /dev/null 2>&1
 
 # Copy configuration files to the appropriate locations
-echo "$password" | sudo -S cat Arch/zshrc > ~/.zshrc
-echo "$password" | sudo -S cat Arch/p10k.zsh > ~/.p10k.zsh
+echo "$password" | sudo -S cat Arch/configs/zshrc > ~/.zshrc
+echo "$password" | sudo -S cat Arch/configs/p10k.zsh > ~/.p10k.zsh
 mkdir -p ~/.config/fontconfig/conf.d
-cat Arch/1-fonts.conf > ~/.config/fontconfig/conf.d/1-fonts.conf
-echo "$password" | sudo -S mv Arch/1920x1080.png /usr/share/wallpapers/Next/contents/images_dark/1920x1080.png
+cat Arch/configs/1-fonts.conf > ~/.config/fontconfig/conf.d/1-fonts.conf
 mkdir -p ~/.config/sublime-text/Packages/User
-cat Arch/Keybinds.txt > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
-cat Arch/Settings.txt > .config/sublime-text/Packages/User/Preferences.sublime-settings
+cat Arch/configs/Keybinds.txt > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
+cat Arch/configs/Settings.txt > .config/sublime-text/Packages/User/Preferences.sublime-settings
 echo "Copied configuration files."
 
 # Change default shell to Zsh
