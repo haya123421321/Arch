@@ -36,7 +36,7 @@ echo "$password" | sudo -S sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman
 echo "Enabled [multilib] repository in /etc/pacman.conf"
 
 # Download BlackArch Linux bootstrap script and set permissions
-curl -O https://blackarch.org/strap.sh
+curl -O https://blackarch.org/strap.sh > /dev/null 2>&1
 chmod +x strap.sh
 echo "Downloaded BlackArch Linux bootstrap script and set permissions"
 
