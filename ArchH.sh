@@ -8,19 +8,19 @@ fi
 
 
 # Prompt the user for confirmation before proceeding
-if $remove_desktop_env; then
-    read -p "Do you want to remove your current desktop environment if you have one? [Y/n]: " choice
-    choice=${choice^^}
 
-    if [[ "$choice" == "N" ]]; then
-        continue
-    elif [[ "$choice" == "Y" ]]; then
-        sudo pacman -Rsn xfce4 lxde gnome kde plasma cinnamon mate deepin xfce4-goodies --noconfirm > /dev/null 2>&1
-        echo "Other desktop environments have been removed."
-    else
-        echo "Invalid choice. Please enter 'Y' or 'n'."
-    fi
+read -p "Do you want to remove your current desktop environment if you have one? [Y/n]: " choice
+choice=${choice^^}
+
+if [[ "$choice" == "N" ]]; then
+    continue
+elif [[ "$choice" == "Y" ]]; then
+    sudo pacman -Rsn xfce4 lxde gnome kde plasma cinnamon mate deepin xfce4-goodies --noconfirm > /dev/null 2>&1
+    echo "Other desktop environments have been removed."
+else
+    echo "Invalid choice. Please enter 'Y' or 'n'."
 fi
+
 
 
 # Prompt the user to enter their password for sudo access
