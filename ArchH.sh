@@ -1,5 +1,35 @@
 #!/bin/bash
 
+package_installed() {
+    pacman -Qi "$1" &>/dev/null
+}
+
+# List of desktop environments to be removed
+desktop_envs=("xfce4" "lxde" "gnome" "kde" "plasma" "cinnamon" "mate" "deepin")
+
+# Check if any of the desktop environments are installed
+remove_desktop_env=false
+for env in "${desktop_envs[@]}"; do
+    if package_installed "$env"; then
+        remove_desktop_env=true
+        break
+    fi
+done
+
+# Prompt the user for confirmation before proceeding
+if $remove_desktop_env; then
+    read -p "We have detected that you have a desktop enviroment installed. Do you want to remove it? [Y/n]: " choice
+    choice=${choice^^}
+
+    if [[ "$choice" == "N" ]]; then
+        continue
+    elif [[ "$choice" == "Y" ]]; then
+        sudo pacman -Rsn xfce4 lxde gnome kde plasma cinnamon mate deepin xfce4-goodies --noconfirm > /dev/null 2>&1
+    fi
+
+# Echo a message indicating successful completion
+echo "Other desktop environments have been removed."
+
 # Prompt the user to enter their password for sudo access
 read -p "Type your password for sudo: " password
 
@@ -7,7 +37,7 @@ read -p "Type your password for sudo: " password
 User=$(whoami)
 
 # Enable [multilib] repository in /etc/pacman.conf
-echo "$password" | sudo -S sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf > /dev/null 2>&1
+echo "$password" | sudo -S sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 echo "Enabled [multilib] repository in /etc/pacman.conf"
 
 # Download BlackArch Linux bootstrap script and set permissions
@@ -26,8 +56,13 @@ echo "Removed BlackArch bootstrap script"
 # Update and install packages from official repositories
 echo "Updating and installing some packages"
 echo "$password" | sudo -S pacman -Syyu --noconfirm > /dev/null 2>&1
-echo "$password" | sudo -S pacman -S git firefox base noto-fonts-emoji gnu-netcat virtualbox i3-wm i3status i3lock dmenu virtualbox-guest-utils sqlitebrowser vlc base-devel fontconfig ttf-droid shotwell dolphin binutils linux-headers whois zsh gcc enum4linux make p7zip zsh-completions zsh-syntax-highlighting openvpn nmap freerdp wireshark-qt aircrack-ng wget gdb vim man sqlmap python2 nikto nfs-utils ruby-irb terminator gobuster binwalk steghide perl-image-exiftool inetutils curlftpfs burpsuite john exploitdb metasploit ffuf hydra hashcat python-pip python2-pip hashid net-tools --noconfirm > /dev/null 2>&1
+echo "$password" | sudo -S pacman -S git firefox sddm base noto-fonts-emoji gnu-netcat virtualbox i3-wm i3status i3lock dmenu virtualbox-guest-utils sqlitebrowser vlc base-devel fontconfig ttf-droid shotwell dolphin binutils linux-headers whois zsh gcc enum4linux make p7zip zsh-completions zsh-syntax-highlighting openvpn nmap freerdp wireshark-qt aircrack-ng wget gdb vim man sqlmap python2 nikto nfs-utils ruby-irb terminator gobuster binwalk steghide perl-image-exiftool inetutils curlftpfs burpsuite john exploitdb metasploit ffuf hydra hashcat python-pip python2-pip hashid net-tools --noconfirm > /dev/null 2>&1
 echo "Updated and installed packages from official repositories"
+
+sudo pacman -Rsn lightdm --noconfirm > /dev/null 2>&1
+
+# Enable and start SDDM
+sudo systemctl enable sddm
 
 # Clear font cache
 fc-cache
