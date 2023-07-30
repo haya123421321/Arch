@@ -50,10 +50,10 @@ echo "$password" | sudo -S pacman -Syyu --noconfirm > /dev/null 2>&1
 echo "$password" | sudo -S pacman -S git firefox sddm base noto-fonts-emoji gnu-netcat virtualbox i3-wm i3status i3lock dmenu virtualbox-guest-utils sqlitebrowser vlc base-devel fontconfig ttf-droid shotwell dolphin binutils linux-headers whois zsh gcc enum4linux make p7zip zsh-completions zsh-syntax-highlighting openvpn nmap freerdp wireshark-qt aircrack-ng wget gdb vim man sqlmap python2 nikto nfs-utils ruby-irb terminator gobuster binwalk steghide perl-image-exiftool inetutils curlftpfs burpsuite john exploitdb metasploit ffuf hydra hashcat python-pip python2-pip hashid net-tools --noconfirm > /dev/null 2>&1
 echo "Updated and installed packages from official repositories"
 
-sudo pacman -Rsn lightdm --noconfirm > /dev/null 2>&1
+echo "$password" | sudo -S pacman -Rsn lightdm --noconfirm > /dev/null 2>&1
 
 # Enable and start SDDM
-sudo systemctl enable sddm
+echo "$password" | sudo -S systemctl enable sddm
 
 # Clear font cache
 fc-cache
