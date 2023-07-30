@@ -26,6 +26,7 @@ fc-cache
 echo "Updated font cache."
 
 # Install yay AUR helper
+echo "Installing yay"
 cd /opt
 echo "$password" | sudo -S git clone https://aur.archlinux.org/yay-git.git > /dev/null 2>&1
 echo "$password" | sudo -S chown -R $User:$User ./yay-git
@@ -40,8 +41,10 @@ echo "$password" | sudo -S chmod 777 /usr/lib/python*/site-packages
 echo "Changed permission on the python folder" 
 
 # Clone configuration files from GitHub repository
+echo "Cloning Github repository"
 cd ~
 git clone https://github.com/haya123421321/Arch.git > /dev/null 2>&1
+echo "Cloned custom configurations from GitHub repository"
 
 # Copy configuration files to the appropriate locations
 echo "$password" | sudo -S cat Arch/configs/zshrc > ~/.zshrc
@@ -54,7 +57,7 @@ cat Arch/configs/Settings.txt > .config/sublime-text/Packages/User/Preferences.s
 echo "Copied configuration files."
 
 # Change default shell to Zsh
-echo 'change shell to zsh'
+echo 'Changing shell to zsh'
 printf "$password\n/bin/zsh" | chsh > /dev/null 2>&1
 echo "Changed default shell to Zsh."
 
