@@ -64,6 +64,7 @@ fc-cache
 echo "Cleared font cache"
 
 # Clone yay AUR helper from Arch User Repository and install it
+echo "Installing yay"
 cd /opt
 echo "$password" | sudo -S git clone https://aur.archlinux.org/yay-git.git > /dev/null 2>&1
 echo "$password" | sudo -S chown -R $User:$User ./yay-git
