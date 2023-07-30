@@ -6,16 +6,17 @@ if [ "$(id -u)" = "0" ]; then
     exit 1
 fi
 
+# Prompt the user to enter their password for sudo access
+read -p "Type your password for sudo: " password
 
-# Prompt the user for confirmation before proceeding
-
+# Ask the user if they want to remove their desktop environment
 read -p "Do you want to remove your current desktop environment if you have one? [Y/n]: " choice
 choice=${choice^^}
 
 if [[ "$choice" == "N" ]]; then
     continue
 elif [[ "$choice" == "Y" ]]; then
-    sudo pacman -Rsn xfce4 lxde gnome kde plasma cinnamon mate deepin xfce4-goodies --noconfirm > /dev/null 2>&1
+    echo "$password" | sudo S pacman -Rsn xfce4 lxde gnome kde plasma cinnamon mate deepin xfce4-goodies --noconfirm > /dev/null 2>&1
     echo "Other desktop environments have been removed."
 else
     echo "Invalid choice. Please enter 'Y' or 'n'."
@@ -23,8 +24,7 @@ fi
 
 
 
-# Prompt the user to enter their password for sudo access
-read -p "Type your password for sudo: " password
+
 
 # Get the current username
 User=$(whoami)
