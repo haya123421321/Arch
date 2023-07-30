@@ -17,7 +17,7 @@ if [[ "$choice" == "N" ]]; then
     continue
 elif [[ "$choice" == "Y" ]]; then
     for pkg in "${DesktopEnvs[@]}"; do
-        sudo pacman -Rsn "$pkg" --noconfirm > /dev/null 2>&1
+        echo "$password" | sudo -S pacman -Rsn "$pkg" --noconfirm > /dev/null 2>&1
     done
     echo "Other desktop environments have been removed."
 else
