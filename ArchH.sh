@@ -47,7 +47,7 @@ echo "Removed BlackArch bootstrap script"
 # Update and install packages from official repositories
 echo "Updating and installing some packages"
 echo "$password" | sudo -S pacman -Syyu --noconfirm > /dev/null 2>&1
-echo "$password" | sudo -S pacman -S git firefox sddm base noto-fonts-emoji feh gnu-netcat kitty ttf-hack virtualbox i3-wm i3status i3lock dmenu virtualbox-guest-utils sqlitebrowser vlc base-devel fontconfig shotwell dolphin binutils linux-headers whois zsh gcc enum4linux make p7zip zsh-completions zsh-syntax-highlighting openvpn nmap freerdp wireshark-qt aircrack-ng wget gdb vim man sqlmap python2 nikto nfs-utils ruby-irb terminator gobuster binwalk steghide perl-image-exiftool inetutils curlftpfs burpsuite john exploitdb metasploit ffuf hydra hashcat python-pip python2-pip hashid net-tools --noconfirm > /dev/null 2>&1
+echo "$password" | sudo -S pacman -S git firefox sddm base noto-fonts-emoji picom feh gnu-netcat kitty ttf-hack virtualbox i3-wm i3status i3lock dmenu virtualbox-guest-utils sqlitebrowser vlc base-devel fontconfig shotwell dolphin binutils linux-headers whois zsh gcc enum4linux make p7zip zsh-completions zsh-syntax-highlighting openvpn nmap freerdp wireshark-qt aircrack-ng wget gdb vim man sqlmap python2 nikto nfs-utils ruby-irb terminator gobuster binwalk steghide perl-image-exiftool inetutils curlftpfs burpsuite john exploitdb metasploit ffuf hydra hashcat python-pip python2-pip hashid net-tools --noconfirm > /dev/null 2>&1
 echo "Updated and installed packages from official repositories"
 
 echo "$password" | sudo -S pacman -Rsn lightdm --noconfirm > /dev/null 2>&1
