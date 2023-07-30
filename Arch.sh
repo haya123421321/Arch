@@ -18,7 +18,7 @@ echo "Enabled multilib repository in pacman.conf."
 # Update system and install packages
 echo "Installing and updating the packages"
 echo "$password" | sudo -S pacman -Syyu --noconfirm > /dev/null 2>&1
-echo "$password" | sudo -S pacman -S base noto-fonts-emoji virtualbox virtualbox-guest-utils wine sqlitebrowser lutris spotify-launcher vlc base-devel fontconfig ttf-droid shotwell steam discord bitwarden dolphin binutils linux-headers zsh gcc ntfs-3g git make zsh-completions zsh-syntax-highlighting vim --noconfirm > /dev/null 2>&1
+echo "$password" | sudo -S pacman -S base noto-fonts-emoji virtualbox virtualbox-guest-utils wine sqlitebrowser lutris spotify-launcher vlc base-devel fontconfig shotwell steam discord bitwarden dolphin binutils linux-headers zsh gcc ntfs-3g git make zsh-completions zsh-syntax-highlighting vim --noconfirm > /dev/null 2>&1
 echo "Updated system and installed packages."
 
 # Update font cache
