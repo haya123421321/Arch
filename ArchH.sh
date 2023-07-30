@@ -113,7 +113,7 @@ echo "Removed cloned GitHub repository"
 
 # Create some text files with specific content
 echo "Taskbar icons: Firefox Dolphin SystemSettings SystemMonitor" > TaskbarIcons
-echo "Get Bitwarden, FoxyProxy and Hackbar" > Firefox_extension
+echo "Get Bitwarden, FoxyProxy and Hack-tools" > Firefox_extension
 
 # Display a message indicating the completion of the script
 echo "Finished!"
