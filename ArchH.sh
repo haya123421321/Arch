@@ -16,7 +16,7 @@ choice=${choice^^}
 if [[ "$choice" == "N" ]]; then
     continue
 elif [[ "$choice" == "Y" ]]; then
-    echo "$password" | sudo S pacman -Rsn xfce4 lxde gnome kde plasma cinnamon mate deepin xfce4-goodies --noconfirm > /dev/null 2>&1
+    echo "$password" | sudo -S pacman -Rsn xfce4 lxde gnome kde plasma cinnamon mate deepin xfce4-goodies --noconfirm > /dev/null 2>&1
     echo "Other desktop environments have been removed."
 else
     echo "Invalid choice. Please enter 'Y' or 'n'."
