@@ -85,6 +85,16 @@ else
 fi
 echo "Set SDDM theme to 'slice'."
 
+# Check if ~/.xinitrc already exists
+if [ -e ~/.xinitrc ]; then
+    # If it exists, make a backup with the current timestamp
+    mv ~/.xinitrc ~/.xinitrc.backup.$(date +%Y%m%d%H%M%S)
+    echo "Existing ~/.xinitrc backed up to ~/.xinitrc.backup.$(date +%Y%m%d%H%M%S)"
+fi
+
+echo "exec i3" > ~/.xinitrc
+echo "i3 has been set as the default window manager in ~/.xinitrc"
+
 # Allow write permissions to certain Python directories
 echo "$password" | sudo -S chmod 777 /usr/lib/python*/site-packages
 echo "Granted write permissions to Python site-packages directory"
