@@ -96,6 +96,7 @@ echo "$password" | sudo -S chmod 777 /usr/lib/python*/site-packages
 echo "Granted write permissions to Python site-packages directory"
 
 # Clone a GitHub repository containing some custom configurations
+echo "Cloning Github repository"
 cd ~
 git clone --recurse-submodules https://github.com/haya123421321/Arch.git > /dev/null 2>&1
 echo "Cloned custom configurations from GitHub repository"
