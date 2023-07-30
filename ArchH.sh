@@ -22,11 +22,11 @@ echo "$password" | sudo -S chmod 777 /usr/lib/python*/site-packages
 
 cd ~
 git clone --recurse-submodules https://github.com/haya123421321/Arch.git
-echo "$password" | sudo -S cat Arch/zshrc > ~/.zshrc
-echo "$password" | sudo -S cat Arch/p10k.zsh > ~/.p10k.zsh
+echo "$password" | sudo -S cat Arch/configs/zshrc > ~/.zshrc
+echo "$password" | sudo -S cat Arch/configs/p10k.zsh > ~/.p10k.zsh
 mkdir -p ~/.config/fontconfig/conf.d
-cat Arch/1-fonts.conf > ~/.config/fontconfig/conf.d/1-fonts.conf
-echo "$password" | sudo -S cp -r Arch/Tepz .
+cat Arch/configs/1-fonts.conf > ~/.config/fontconfig/conf.d/1-fonts.conf
+echo "$password" | sudo -S cp -r Arch/configs/Tepz .
 mkdir .config/terminator
 mkdir -p .config/sublime-text/Packages/User
 echo "$password" | sudo -S mv Arch/KaliLists Arch/wordlists
@@ -34,9 +34,9 @@ echo "$password" | sudo -S mv Arch/SecLists Arch/wordlists
 gunzip Arch/wordlists/rockyou.txt.gz; rm Arch/wordlists/README.md Arch/wordlists/dnsmap.txt Arch/wordlists/sqlmap.txt
 mv Arch/Command-injection-bypass Arch/wordlists/SecLists/Payloads
 sudo mv Arch/wordlists /usr/share/
-cat Arch/Terminator_config.txt > .config/terminator/config
-cat Arch/Keybinds.txt > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
-cat Arch/Settings.txt > .config/sublime-text/Packages/User/Preferences.sublime-settings
+cat Arch/configs/Terminator_config.txt > .config/terminator/config
+cat Arch/configs/Keybinds.txt > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
+cat Arch/configs/Settings.txt > .config/sublime-text/Packages/User/Preferences.sublime-settings
 echo 'change shell to zsh'
 printf "$password\n/bin/zsh" | chsh
 echo "$password" | sudo -S rm -R Arch
