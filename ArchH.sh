@@ -8,7 +8,7 @@ fi
 
 # Prompt the user to enter their password for sudo access
 read -p "Type your password for sudo: " password
-
+DesktopEnvs=("xfce4" "lxde" "gnome" "kde" "plasma" "cinnamon" "mate" "deepin" "xfce4-goodies")
 # Ask the user if they want to remove their desktop environment
 read -p "Do you want to remove your current desktop environment if you have one? [Y/n]: " choice
 choice=${choice^^}
@@ -16,7 +16,8 @@ choice=${choice^^}
 if [[ "$choice" == "N" ]]; then
     continue
 elif [[ "$choice" == "Y" ]]; then
-    echo "$password" | sudo -S pacman -Rsn xfce4 lxde gnome kde plasma cinnamon mate deepin xfce4-goodies --noconfirm > /dev/null 2>&1
+    for pkg in "${DesktopEnvs[@]}"; do
+        sudo pacman -Rsn "$pkg" --noconfirm > /dev/null 2>&1
     echo "Other desktop environments have been removed."
 else
     echo "Invalid choice. Please enter 'Y' or 'n'."
