@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Check if the script is being run with sudo
+if [ "$(id -u)" = "0" ]; then
+    echo "Please do not use sudo to run this script. Run it as a regular user."
+    exit 1
+fi
+
 package_installed() {
     pacman -Qi "$1" &>/dev/null
 }
