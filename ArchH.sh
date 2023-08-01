@@ -107,6 +107,10 @@ echo 'Changing shell to zsh'
 printf "$password\n/bin/zsh" | chsh > /dev/null 2>&1
 echo "Changed default shell to Zsh"
 
+# Add wireshark group
+echo "$password" | sudo -S usermod -a -G wireshark $User
+echo "Added group 'wireshark' to user"
+
 # Remove the cloned GitHub repository
 echo "$password" | sudo -S rm -R Arch
 echo "Removed cloned GitHub repository"
