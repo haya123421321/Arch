@@ -9,7 +9,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -85,6 +85,7 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
+
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -217,3 +218,7 @@ gaps outer 2
 
 exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpaper.jpg
 exec --no-startup-id /usr/bin/compton
+
+exec --no-startup-id i3-msg 'workspace 1:Web; exec /usr/bin/firefox'
+exec --no-startup-id i3-msg 'workspace 2:Terminal; exec /usr/bin/kitty'
+exec --no-startup-id i3-msg 'workspace 3:Burp; exec /usr/bin/burpsuite'
