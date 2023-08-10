@@ -51,7 +51,7 @@ echo "$password" | sudo -S git clone https://aur.archlinux.org/yay-git.git > /de
 echo "$password" | sudo -S chown -R $User:$User ./yay-git
 cd /opt/yay-git
 yes | makepkg -si > /dev/null 2>&1
-echo "$password" | yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 sddm-slice-git libunity > /dev/null 2>&1
+echo "$password" | yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 sddm-slice-git libunity autotiling > /dev/null 2>&1
 echo "Cloned yay AUR helper and installed some packages from AUR"
 
 # Set SDDM theme to 'slice'
