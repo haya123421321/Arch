@@ -54,6 +54,12 @@ cat Arch/configs/Keybinds.txt > '.config/sublime-text/Packages/User/Default (Lin
 cat Arch/configs/Settings.txt > .config/sublime-text/Packages/User/Preferences.sublime-settings
 echo "Copied configuration files."
 
+# Installing sublime packages
+echo "Setting up sublime text"
+subl -b --command "install_package_control"
+subl -b --command "advanced_install_package {\"packages\": \"Anaconda\"}"
+sed -i 's/"anaconda_linting"\s*:\s*true,/"anaconda_linting" : false,/' ~/.config/sublime-text/Packages/Anaconda/Anaconda.sublime-settings
+
 # Change default shell to Zsh
 echo 'Changing shell to zsh'
 printf "$password\n/bin/zsh" | chsh > /dev/null 2>&1
