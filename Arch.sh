@@ -74,6 +74,7 @@ echo "Cleaned up cloned repository."
 echo "Git cloning Scripts folder"
 git clone https://github.com/haya123421321/Scripts > /dev/null 2>&1
 for file in $(ls ~/Scripts/Youtube/*.py);do ln -sf $file ~/Scripts/Scripts/$(basename $file);done
+for file in $(ls ~/Scripts/MN/*);do ln -sf $file ~/Scripts/Scripts/$(basename $file);done
 
 # Set SDDM theme to 'slice'
 if [ -f /etc/sddm.conf ]; then
