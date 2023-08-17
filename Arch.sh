@@ -69,6 +69,11 @@ echo "Changed default shell to Zsh."
 echo "$password" | sudo -S rm -R Arch
 echo "Cleaned up cloned repository."
 
+# Get the Scripts folder
+echo "Git cloning Scripts folder"
+git clone https://github.com/haya123421321/Scripts > /dev/null 2>&1
+for file in $(ls ~/Scripts/Youtube/*.py);do ln -sf $file ~/Scripts/Scripts/$(basename $file);done
+
 # Set SDDM theme to 'slice'
 if [ -f /etc/sddm.conf ]; then
     sudo sed -i "/^\[Theme\]/,/^\[/ s/^Current=.*/Current=slice/" /etc/sddm.conf
