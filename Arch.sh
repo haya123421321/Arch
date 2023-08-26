@@ -187,8 +187,9 @@ echo -e "$nvidia" > ~/.config/autostart/'NVIDIA X Server Settings.desktop'
 echo "Configured autostart entries for applications."
 
 # Create Taskbar and Desktop icon configuration files
-echo "Taskbar icons: <WebBrowser> Steam Spotify Discord Bitwarden Dolphin SystemSettings SystemMonitor Konsole" > TaskbarIcons
-echo "Desktop: <WebBroser> Steam Discord Dolphin VirtualBox" > DesktopIcons
+echo "Taskbar icons: <WebBrowser> Steam Spotify Discord Bitwarden Dolphin SystemSettings SystemMonitor Konsole" > Note
+echo "Desktop: <WebBroser> Steam Discord Dolphin VirtualBox" >> Note
+echo "Put night color to 4500"
 
 echo "Finished!"
 
