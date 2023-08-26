@@ -18,7 +18,7 @@ echo "Enabled multilib repository in pacman.conf."
 # Update system and install packages
 echo "Installing and updating the packages"
 echo "$password" | sudo -S pacman -Syyu --noconfirm > /dev/null 2>&1
-echo "$password" | sudo -S pacman -S base noto-fonts-emoji virtualbox virtualbox-guest-utils wine sqlitebrowser ttf-hack lutris spotify-launcher vlc base-devel fontconfig shotwell steam discord bitwarden dolphin binutils linux-headers zsh gcc ntfs-3g git make zsh-completions zsh-syntax-highlighting vim --noconfirm > /dev/null 2>&1
+echo "$password" | sudo -S pacman -S base noto-fonts-emoji python-pipx virtualbox virtualbox-guest-utils wine sqlitebrowser ttf-hack lutris spotify-launcher vlc base-devel fontconfig shotwell steam discord bitwarden dolphin binutils linux-headers zsh gcc ntfs-3g git make zsh-completions zsh-syntax-highlighting vim --noconfirm > /dev/null 2>&1
 echo "Updated system and installed packages."
 
 # Update font cache
@@ -49,7 +49,7 @@ echo "Cloned custom configurations from GitHub repository"
 # Copy configuration files to the appropriate locations
 echo "$password" | sudo -S cat Arch/configs/zshrc > ~/.zshrc
 echo "$password" | sudo -S cat Arch/configs/p10k.zsh > ~/.p10k.zsh
-echo 'export PATH=$PATH:/usr/sbin:$(echo ~)/Scripts/Scripts' >> ~/.zshrc
+echo 'export PATH=$PATH:/usr/sbin:$(echo ~)/Scripts/Scripts:$(echo ~)/.local/bin' >> ~/.zshrc
 mkdir -p ~/.config/sublime-text/Packages/User
 cat Arch/configs/Keybinds.txt > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
 cat Arch/configs/Settings.txt > .config/sublime-text/Packages/User/Preferences.sublime-settings
