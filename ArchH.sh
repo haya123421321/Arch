@@ -13,7 +13,7 @@ read -p "Type your password for sudo: " password
 User=$(whoami)
 
 # Enable [multilib] repository in /etc/pacman.conf
-echo "$password" | sudo -S sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
+echo "$password" | sudo -S sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf 2>&1
 echo "Enabled [multilib] repository in /etc/pacman.conf"
 
 # Download BlackArch Linux bootstrap script and set permissions
