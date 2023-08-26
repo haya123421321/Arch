@@ -32,7 +32,7 @@ echo "Removed BlackArch bootstrap script"
 # Update and install packages from official repositories
 echo "Updating and installing some packages"
 echo "$password" | sudo -S pacman -Syyu --noconfirm > /dev/null 2>&1
-echo "$password" | sudo -S pacman -S git firefox sddm base noto-fonts-emoji picom feh gnu-netcat ttf-hack i3-wm i3status i3lock dmenu sqlitebrowser vlc base-devel fontconfig shotwell dolphin binutils linux-headers whois zsh gcc enum4linux make p7zip zsh-completions zsh-syntax-highlighting openvpn nmap freerdp wireshark-qt aircrack-ng wget gdb vim man sqlmap python2 nikto nfs-utils ruby-irb kitty gobuster binwalk steghide perl-image-exiftool inetutils curlftpfs burpsuite john exploitdb metasploit ffuf hydra hashcat python-pip python2-pip hashid net-tools --noconfirm > /dev/null 2>&1
+echo "$password" | sudo -S pacman -S git firefox sddm base noto-fonts-emoji python-pipx picom feh gnu-netcat ttf-hack i3-wm i3status i3lock dmenu sqlitebrowser vlc base-devel fontconfig shotwell dolphin binutils linux-headers whois zsh gcc enum4linux make p7zip zsh-completions zsh-syntax-highlighting openvpn nmap freerdp wireshark-qt aircrack-ng wget gdb vim man sqlmap python2 nikto nfs-utils ruby-irb kitty gobuster binwalk steghide perl-image-exiftool inetutils curlftpfs burpsuite john exploitdb metasploit ffuf hydra hashcat python-pip python2-pip hashid net-tools --noconfirm > /dev/null 2>&1
 echo "Updated and installed packages from official repositories"
 
 echo "$password" | sudo -S pacman -Rsn lightdm --noconfirm > /dev/null 2>&1
@@ -75,7 +75,7 @@ echo "Cloned custom configurations from GitHub repository"
 # Copy the custom Zsh configuration and powerlevel10k theme to the user's home directory
 echo "$password" | sudo -S cat Arch/configs/zshrc > ~/.zshrc
 echo "$password" | sudo -S cat Arch/configs/p10k.zsh > ~/.p10k.zsh
-echo 'export PATH=$PATH:/usr/sbin:$(echo ~)/Tepz/MyScripts' >> ~/.zshrc
+echo 'export PATH=$PATH:/usr/sbin:$(echo ~)/Tepz/MyScripts:$(echo ~)/.local/bin' >> ~/.zshrc
 echo "Copied custom Zsh configuration and powerlevel10k theme"
 
 # Copy other custom configurations to their respective directories
