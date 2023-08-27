@@ -208,7 +208,7 @@ echo "Configured autostart entries for applications."
 # Make some notes
 echo "Taskbar icons: <WebBrowser> Steam Spotify Discord Bitwarden Dolphin SystemSettings SystemMonitor Konsole" > Note
 echo "Desktop: <WebBroser> Steam Discord Dolphin VirtualBox" >> Note
-echo "Put night color to 4500"
+echo "Put night color to 4500" >> Note
 
 echo "Finished!"
 
