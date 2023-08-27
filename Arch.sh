@@ -195,7 +195,8 @@ RestartSec=3600\n\
 WantedBy=multi-user.target\n\
 "
 
-echo -e "$anichecker" | sudo -S tee /etc/systemd/system/anichecker.service <<< "$password"
+echo -e "$anichecker" > /tmp/anichecker_temp
+sudo mv /tmp/anichecker_temp /etc/systemd/system/anichecker.service
 echo "$password" | sudo -S systemctl enable anichecker
 
 echo -e "$discord" > ~/.config/autostart/discord.desktop
