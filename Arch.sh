@@ -179,6 +179,25 @@ Terminal=False\n\
 Type=Application\n\
 "
 
+anichecker="[Unit]\n\
+Description=Anichecker\n\
+Wants=network-online.target\n\
+After=network-online.target\n\
+\\n\
+[Service]\n\
+Type=simple\n\
+User=$User\n\
+ExecStart=$(which python) $(echo ~)/Scripts/Anichecker/Anichecker.py\n\
+Restart=always\n\
+RestartSec=3600\n\
+\\n\
+[Install]\n\
+WantedBy=multi-user.target\n\
+"
+
+echo "$password" | sudo -S echo -e "$anichecker" > /etc/systemd/system/anichecker.service
+echo "$password" | sudo -S systemctl enable anichecker
+
 echo -e "$discord" > ~/.config/autostart/discord.desktop
 echo -e "$FDM" > ~/.config/autostart/FDM.desktop
 echo -e "$steam" > ~/.config/autostart/steam.desktop
@@ -186,7 +205,7 @@ echo -e "$spotify" > ~/.config/autostart/spotify.desktop
 echo -e "$nvidia" > ~/.config/autostart/'NVIDIA X Server Settings.desktop'
 echo "Configured autostart entries for applications."
 
-# Create Taskbar and Desktop icon configuration files
+# Make some notes
 echo "Taskbar icons: <WebBrowser> Steam Spotify Discord Bitwarden Dolphin SystemSettings SystemMonitor Konsole" > Note
 echo "Desktop: <WebBroser> Steam Discord Dolphin VirtualBox" >> Note
 echo "Put night color to 4500"
