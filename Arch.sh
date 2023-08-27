@@ -18,7 +18,7 @@ echo "Enabled multilib repository in pacman.conf."
 # Update system and install packages
 echo "Installing and updating the packages"
 echo "$password" | sudo -S pacman -Syyu --noconfirm > /dev/null 2>&1
-echo "$password" | sudo -S pacman -S base noto-fonts-emoji python-pipx virtualbox virtualbox-guest-utils wine sqlitebrowser ttf-hack lutris spotify-launcher vlc base-devel fontconfig shotwell steam discord bitwarden dolphin binutils linux-headers zsh gcc ntfs-3g git make zsh-completions zsh-syntax-highlighting vim --noconfirm > /dev/null 2>&1
+echo "$password" | sudo -S pacman -S base noto-fonts-emoji python-pipx python-pip virtualbox virtualbox-guest-utils wine sqlitebrowser ttf-hack lutris spotify-launcher vlc base-devel fontconfig shotwell steam discord bitwarden dolphin binutils linux-headers zsh gcc ntfs-3g git make zsh-completions zsh-syntax-highlighting vim --noconfirm > /dev/null 2>&1
 echo "Updated system and installed packages."
 
 # Update font cache
@@ -37,8 +37,8 @@ echo "Installed yay AUR helper."
 # Install AUR packages using yay
 echo "$password" | yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 freedownloadmanager libunity google-chrome sddm-slice-git > /dev/null 2>&1
 echo "Installed AUR packages using yay."
-echo "$password" | sudo -S chmod 777 /usr/lib/python*/site-packages
-echo "Changed permission on the python folder" 
+pip install bs4 selenium requests pytube ffmpeg --break-system-packages
+echo "Installed some python packages" 
 
 # Clone configuration files from GitHub repository
 echo "Cloning Github repository"
