@@ -16,7 +16,7 @@ echo "$password" | sudo -S sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman
 
 # Update system and install packages
 echo "$password" | sudo -S pacman -Syyu --noconfirm > /dev/null 
-echo "$password" | sudo -S pacman -S base noto-fonts-emoji python-pipx python-pip virtualbox virtualbox-guest-utils wine sqlitebrowser ttf-hack lutris spotify-launcher vlc base-devel fontconfig shotwell steam discord bitwarden dolphin binutils linux-headers zsh gcc ntfs-3g git make zsh-completions zsh-syntax-highlighting vim --noconfirm > /dev/null 
+echo "$password" | sudo -S pacman -S base noto-fonts-emoji python-pipx python-pip virtualbox virtualbox-guest-utils wine sqlitebrowser ttf-hack lutris spotify-launcher vlc base-devel fontconfig shotwell steam discord bitwarden dolphin binutils linux-headers zsh gcc ntfs-3g git make zsh-completions zsh-syntax-highlighting vim --noconfirm 
 
 # Update font cache
 fc-cache
