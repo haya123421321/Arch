@@ -97,8 +97,7 @@ cp Arch/configs/Wallpaper.jpg ~/Pictures
 mkdir ~/.config/kitty
 cat Arch/configs/kitty.conf > ~/.config/kitty/kitty.conf
 
-# Copy configuration files for Terminator and Sublime Text
-##cat Arch/configs/Terminator_config.txt > .config/terminator/config
+# Copy configuration files for Sublime Text
 cat Arch/configs/Keybinds.txt > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
 cat Arch/configs/Settings.txt > .config/sublime-text/Packages/User/Preferences.sublime-settings
 echo "Copied configuration files for Terminator and Sublime Text"
