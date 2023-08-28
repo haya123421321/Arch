@@ -37,7 +37,7 @@ echo "Installed yay AUR helper."
 # Install AUR packages using yay
 echo "$password" | yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 freedownloadmanager konsave libunity google-chrome sddm-slice-git > /dev/null 2>&1
 echo "Installed AUR packages using yay."
-pip install bs4 selenium requests pytube ffmpeg --break-system-packages
+pip install bs4 selenium requests pytube ffmpeg --break-system-packages 2>&1
 echo "Installed some python packages" 
 
 # Clone configuration files from GitHub repository
@@ -65,7 +65,7 @@ echo "Copied configuration files."
 echo "Setting up sublime text"
 subl -b --command "install_package_control"
 subl -b --command "advanced_install_package {\"packages\": \"Anaconda\"}"
-sed -i 's/"anaconda_linting"\s*:\s*true,/"anaconda_linting" : false,/' ~/.config/sublime-text/Packages/Anaconda/Anaconda.sublime-settings
+sed -i 's/"anaconda_linting"\s*:\s*true,/"anaconda_linting" : false,/' ~/.config/sublime-text/Packages/Anaconda/Anaconda.sublime-settings 2>&1
 
 # Change default shell to Zsh
 echo 'Changing shell to zsh'
@@ -203,7 +203,7 @@ WantedBy=multi-user.target\n\
 
 echo -e "$anichecker" > /tmp/anichecker_temp
 sudo mv /tmp/anichecker_temp /etc/systemd/system/anichecker.service
-echo "$password" | sudo -S systemctl enable anichecker
+echo "$password" | sudo -S systemctl enable anichecker 2>&1
 
 echo -e "$discord" > ~/.config/autostart/discord.desktop
 echo -e "$FDM" > ~/.config/autostart/FDM.desktop
