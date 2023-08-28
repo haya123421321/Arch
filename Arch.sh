@@ -12,39 +12,29 @@ read -p "Type your password for sudo: " password
 User=$(whoami)
 
 # Update pacman.conf to enable multilib repository
-echo "$password" | sudo -S sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf 2>&1
-echo -e "\nEnabled multilib repository in pacman.conf."
+echo "$password" | sudo -S sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf 
 
 # Update system and install packages
-echo "Installing and updating the packages"
-echo "$password" | sudo -S pacman -Syyu --noconfirm > /dev/null 2>&1
-echo "$password" | sudo -S pacman -S base noto-fonts-emoji python-pipx python-pip virtualbox virtualbox-guest-utils wine sqlitebrowser ttf-hack lutris spotify-launcher vlc base-devel fontconfig shotwell steam discord bitwarden dolphin binutils linux-headers zsh gcc ntfs-3g git make zsh-completions zsh-syntax-highlighting vim --noconfirm > /dev/null 2>&1
-echo "Updated system and installed packages."
+echo "$password" | sudo -S pacman -Syyu --noconfirm > /dev/null 
+echo "$password" | sudo -S pacman -S base noto-fonts-emoji python-pipx python-pip virtualbox virtualbox-guest-utils wine sqlitebrowser ttf-hack lutris spotify-launcher vlc base-devel fontconfig shotwell steam discord bitwarden dolphin binutils linux-headers zsh gcc ntfs-3g git make zsh-completions zsh-syntax-highlighting vim --noconfirm > /dev/null 
 
 # Update font cache
 fc-cache
-echo "Updated font cache."
 
 # Install yay AUR helper
-echo "Installing yay"
 cd /opt
-echo "$password" | sudo -S git clone https://aur.archlinux.org/yay-git.git > /dev/null 2>&1
+echo "$password" | sudo -S git clone https://aur.archlinux.org/yay-git.git > /dev/null 
 echo "$password" | sudo -S chown -R $User:$User ./yay-git
 cd /opt/yay-git
-yes | makepkg -si > /dev/null 2>&1
-echo "Installed yay AUR helper."
+yes | makepkg -si > /dev/null 
 
 # Install AUR packages using yay
-echo "$password" | yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 freedownloadmanager konsave libunity google-chrome sddm-slice-git > /dev/null 2>&1
-echo "Installed AUR packages using yay."
-pip install bs4 selenium requests pytube ffmpeg --break-system-packages 2>&1
-echo "Installed some python packages" 
+echo "$password" | yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 freedownloadmanager konsave libunity google-chrome sddm-slice-git > /dev/null 
+pip install bs4 selenium requests pytube ffmpeg --break-system-packages 
 
 # Clone configuration files from GitHub repository
-echo "Cloning Github repository"
 cd ~
-git clone https://github.com/haya123421321/Arch.git > /dev/null 2>&1
-echo "Cloned custom configurations from GitHub repository"
+git clone https://github.com/haya123421321/Arch.git > /dev/null 
 
 # Copy configuration files to the appropriate locations
 echo "$password" | sudo -S cat Arch/configs/zshrc > ~/.zshrc
@@ -57,28 +47,22 @@ mkdir -p ~/.config/konsave/profiles
 mkdir -p ~/.local/share/color-schemes
 cp -r Arch/configs/Main ~/.config/konsave/profiles/
 cp Arch/configs/Main.colors ~/.local/share/color-schemes/
-konsave -a Main 2>&1
+konsave -a Main 
 plasma-apply-colorscheme Main
-echo "Copied configuration files."
 
 # Installing sublime packages
-echo "Setting up sublime text"
 subl -b --command "install_package_control"
 subl -b --command "advanced_install_package {\"packages\": \"Anaconda\"}"
-sed -i 's/"anaconda_linting"\s*:\s*true,/"anaconda_linting" : false,/' ~/.config/sublime-text/Packages/Anaconda/Anaconda.sublime-settings 2>&1
+sed -i 's/"anaconda_linting"\s*:\s*true,/"anaconda_linting" : false,/' ~/.config/sublime-text/Packages/Anaconda/Anaconda.sublime-settings 
 
 # Change default shell to Zsh
-echo 'Changing shell to zsh'
-printf "$password\n/bin/zsh" | chsh > /dev/null 2>&1
-echo "Changed default shell to Zsh."
+printf "$password\n/bin/zsh" | chsh > /dev/null 
 
 # Clean up cloned repository
 echo "$password" | sudo -S rm -R Arch
-echo "Cleaned up cloned repository."
 
 # Get the Scripts folder
-echo "Git cloning Scripts folder"
-git clone https://github.com/haya123421321/Scripts > /dev/null 2>&1
+git clone https://github.com/haya123421321/Scripts > /dev/null 
 for file in $(ls ~/Scripts/Youtube/*.py);do ln -sf $file ~/Scripts/Scripts/$(basename $file);done
 for file in $(ls ~/Scripts/MN/*);do ln -sf $file ~/Scripts/Scripts/$(basename $file);done
 
@@ -86,9 +70,8 @@ for file in $(ls ~/Scripts/MN/*);do ln -sf $file ~/Scripts/Scripts/$(basename $f
 if [ -f /etc/sddm.conf ]; then
     sudo sed -i "/^\[Theme\]/,/^\[/ s/^Current=.*/Current=slice/" /etc/sddm.conf
 else
-    echo -e "[Theme]\nCurrent=slice" | sudo tee /etc/sddm.conf > /dev/null 2>&1
+    echo -e "[Theme]\nCurrent=slice" | sudo tee /etc/sddm.conf > /dev/null 
 fi
-echo "Set SDDM theme to 'slice'."
 
 # Set up autostart entries for various applications
 mkdir -p ~/.config/autostart
@@ -203,14 +186,13 @@ WantedBy=multi-user.target\n\
 
 echo -e "$anichecker" > /tmp/anichecker_temp
 sudo mv /tmp/anichecker_temp /etc/systemd/system/anichecker.service
-echo "$password" | sudo -S systemctl enable anichecker 2>&1
+echo "$password" | sudo -S systemctl enable anichecker 
 
 echo -e "$discord" > ~/.config/autostart/discord.desktop
 echo -e "$FDM" > ~/.config/autostart/FDM.desktop
 echo -e "$steam" > ~/.config/autostart/steam.desktop
 echo -e "$spotify" > ~/.config/autostart/spotify.desktop
 echo -e "$nvidia" > ~/.config/autostart/'NVIDIA X Server Settings.desktop'
-echo "Configured autostart entries for applications."
 
 # Make some notes
 echo "Taskbar icons: <WebBrowser> Steam Spotify Discord Bitwarden Dolphin SystemSettings SystemMonitor Konsole" > Note
