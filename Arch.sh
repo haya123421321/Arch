@@ -15,7 +15,7 @@ User=$(whoami)
 echo "$password" | sudo -S sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf 
 
 # Update system and install packages
-echo "$password" | sudo -S pacman -Syyu --noconfirm > /dev/null 
+echo "$password" | sudo -S pacman -Syyu --noconfirm 
 echo "$password" | sudo -S pacman -S base noto-fonts-emoji python-pipx python-pip virtualbox virtualbox-guest-utils wine sqlitebrowser ttf-hack lutris spotify-launcher vlc base-devel fontconfig shotwell steam discord bitwarden dolphin binutils linux-headers zsh gcc ntfs-3g git make zsh-completions zsh-syntax-highlighting vim --noconfirm 
 
 # Update font cache
@@ -23,18 +23,18 @@ fc-cache
 
 # Install yay AUR helper
 cd /opt
-echo "$password" | sudo -S git clone https://aur.archlinux.org/yay-git.git > /dev/null 
+echo "$password" | sudo -S git clone https://aur.archlinux.org/yay-git.git
 echo "$password" | sudo -S chown -R $User:$User ./yay-git
 cd /opt/yay-git
 yes | makepkg -si > /dev/null 
 
 # Install AUR packages using yay
-echo "$password" | yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 freedownloadmanager konsave libunity google-chrome sddm-slice-git > /dev/null 
+echo "$password" | yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 freedownloadmanager konsave libunity google-chrome sddm-slice-git
 pip install bs4 selenium requests pytube ffmpeg --break-system-packages 
 
 # Clone configuration files from GitHub repository
 cd ~
-git clone https://github.com/haya123421321/Arch.git > /dev/null 
+git clone https://github.com/haya123421321/Arch.git
 
 # Copy configuration files to the appropriate locations
 echo "$password" | sudo -S cat Arch/configs/zshrc > ~/.zshrc
@@ -56,13 +56,13 @@ subl -b --command "advanced_install_package {\"packages\": \"Anaconda\"}"
 sed -i 's/"anaconda_linting"\s*:\s*true,/"anaconda_linting" : false,/' ~/.config/sublime-text/Packages/Anaconda/Anaconda.sublime-settings 
 
 # Change default shell to Zsh
-printf "$password\n/bin/zsh" | chsh > /dev/null 
+printf "$password\n/bin/zsh" | chsh
 
 # Clean up cloned repository
 echo "$password" | sudo -S rm -R Arch
 
 # Get the Scripts folder
-git clone https://github.com/haya123421321/Scripts > /dev/null 
+git clone https://github.com/haya123421321/Scripts
 for file in $(ls ~/Scripts/Youtube/*.py);do ln -sf $file ~/Scripts/Scripts/$(basename $file);done
 for file in $(ls ~/Scripts/MN/*);do ln -sf $file ~/Scripts/Scripts/$(basename $file);done
 
@@ -70,7 +70,7 @@ for file in $(ls ~/Scripts/MN/*);do ln -sf $file ~/Scripts/Scripts/$(basename $f
 if [ -f /etc/sddm.conf ]; then
     sudo sed -i "/^\[Theme\]/,/^\[/ s/^Current=.*/Current=slice/" /etc/sddm.conf
 else
-    echo -e "[Theme]\nCurrent=slice" | sudo tee /etc/sddm.conf > /dev/null 
+    echo -e "[Theme]\nCurrent=slice" | sudo tee /etc/sddm.conf
 fi
 
 # Set up autostart entries for various applications
