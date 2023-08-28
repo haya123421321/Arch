@@ -13,7 +13,7 @@ User=$(whoami)
 
 # Update pacman.conf to enable multilib repository
 echo "$password" | sudo -S sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf 2>&1
-echo "Enabled multilib repository in pacman.conf."
+echo -e "\nEnabled multilib repository in pacman.conf."
 
 # Update system and install packages
 echo "Installing and updating the packages"
