@@ -35,7 +35,7 @@ yes | makepkg -si > /dev/null 2>&1
 echo "Installed yay AUR helper."
 
 # Install AUR packages using yay
-echo "$password" | yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 freedownloadmanager libunity google-chrome sddm-slice-git > /dev/null 2>&1
+echo "$password" | yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 freedownloadmanager konsave libunity google-chrome sddm-slice-git > /dev/null 2>&1
 echo "Installed AUR packages using yay."
 pip install bs4 selenium requests pytube ffmpeg --break-system-packages
 echo "Installed some python packages" 
@@ -53,6 +53,9 @@ echo 'export PATH=$PATH:/usr/sbin:$(echo ~)/Scripts/Scripts:$(echo ~)/.local/bin
 mkdir -p ~/.config/sublime-text/Packages/User
 cat Arch/configs/Keybinds.txt > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
 cat Arch/configs/Settings.txt > .config/sublime-text/Packages/User/Preferences.sublime-settings
+mkdir -p ~/.config/konsave/profiles
+cp -r Arch/configs/Main ~/.config/konsave/profiles/
+konsave -a Main 2>&1
 echo "Copied configuration files."
 
 # Installing sublime packages
