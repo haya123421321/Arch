@@ -13,16 +13,16 @@ read -p "Type your password for sudo: " password
 User=$(whoami)
 
 # Enable [multilib] repository in /etc/pacman.conf
-echo "$password" | sudo -S sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf 2>&1
+echo "$password" | sudo -S sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf 
 echo "Enabled [multilib] repository in /etc/pacman.conf"
 
 # Download BlackArch Linux bootstrap script and set permissions
-curl -O https://blackarch.org/strap.sh > /dev/null 2>&1
+curl -O https://blackarch.org/strap.sh  
 chmod +x strap.sh
 echo "Downloaded BlackArch Linux bootstrap script and set permissions"
 
 # Run the BlackArch bootstrap script with sudo access
-echo "$password" | sudo -S ./strap.sh > /dev/null 2>&1
+echo "$password" | sudo -S ./strap.sh  
 echo "Executed BlackArch bootstrap script"
 
 # Remove the bootstrap script after it's been executed
@@ -31,11 +31,11 @@ echo "Removed BlackArch bootstrap script"
 
 # Update and install packages from official repositories
 echo "Updating and installing some packages"
-echo "$password" | sudo -S pacman -Syyu --noconfirm > /dev/null 2>&1
-echo "$password" | sudo -S pacman -S git firefox sddm base noto-fonts-emoji python-pipx picom feh gnu-netcat ttf-hack i3-wm i3status i3lock dmenu sqlitebrowser vlc base-devel fontconfig shotwell dolphin binutils linux-headers whois zsh gcc enum4linux make p7zip zsh-completions zsh-syntax-highlighting openvpn nmap freerdp wireshark-qt aircrack-ng wget gdb vim man sqlmap python2 nikto nfs-utils ruby-irb kitty gobuster binwalk steghide perl-image-exiftool inetutils curlftpfs burpsuite john exploitdb metasploit ffuf hydra hashcat python-pip python2-pip hashid net-tools --noconfirm > /dev/null 2>&1
+echo "$password" | sudo -S pacman -Syyu --noconfirm  
+echo "$password" | sudo -S pacman -S git firefox sddm base noto-fonts-emoji python-pipx picom feh gnu-netcat ttf-hack i3-wm i3status i3lock dmenu sqlitebrowser vlc base-devel fontconfig shotwell dolphin binutils linux-headers whois zsh gcc enum4linux make p7zip zsh-completions zsh-syntax-highlighting openvpn nmap freerdp wireshark-qt aircrack-ng wget gdb vim man sqlmap python2 nikto nfs-utils ruby-irb kitty gobuster binwalk steghide perl-image-exiftool inetutils curlftpfs burpsuite john exploitdb metasploit ffuf hydra hashcat python-pip python2-pip hashid net-tools --noconfirm  
 echo "Updated and installed packages from official repositories"
 
-echo "$password" | sudo -S pacman -Rsn lightdm --noconfirm > /dev/null 2>&1
+echo "$password" | sudo -S pacman -Rsn lightdm --noconfirm  
 
 # Enable and start SDDM
 echo "$password" | sudo -S systemctl enable sddm
@@ -47,18 +47,18 @@ echo "Cleared font cache"
 # Clone yay AUR helper from Arch User Repository and install it
 echo "Installing yay"
 cd /opt
-echo "$password" | sudo -S git clone https://aur.archlinux.org/yay-git.git > /dev/null 2>&1
+echo "$password" | sudo -S git clone https://aur.archlinux.org/yay-git.git  
 echo "$password" | sudo -S chown -R $User:$User ./yay-git
 cd /opt/yay-git
-yes | makepkg -si > /dev/null 2>&1
-echo "$password" | yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 sddm-slice-git libunity autotiling > /dev/null 2>&1
+yes | makepkg -si  
+echo "$password" | yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 sddm-slice-git libunity autotiling  
 echo "Cloned yay AUR helper and installed some packages from AUR"
 
 # Set SDDM theme to 'slice'
 if [ -f /etc/sddm.conf ]; then
     sudo sed -i "/^\[Theme\]/,/^\[/ s/^Current=.*/Current=slice/" /etc/sddm.conf
 else
-    echo -e "[Theme]\nCurrent=slice" | sudo tee /etc/sddm.conf > /dev/null 2>&1
+    echo -e "[Theme]\nCurrent=slice" | sudo tee /etc/sddm.conf  
 fi
 echo "Set SDDM theme to 'slice'."
 
@@ -69,7 +69,7 @@ echo "Granted write permissions to Python site-packages directory"
 # Clone a GitHub repository containing some custom configurations
 echo "Cloning Github repository"
 cd ~
-git clone --recurse-submodules https://github.com/haya123421321/Arch.git > /dev/null 2>&1
+git clone --recurse-submodules https://github.com/haya123421321/Arch.git  
 echo "Cloned custom configurations from GitHub repository"
 
 # Copy the custom Zsh configuration and powerlevel10k theme to the user's home directory
@@ -105,7 +105,7 @@ echo "Copied configuration files for Terminator and Sublime Text"
 
 # Change the default shell to Zsh for the current user
 echo 'Changing shell to zsh'
-printf "$password\n/bin/zsh" | chsh > /dev/null 2>&1
+printf "$password\n/bin/zsh" | chsh  
 echo "Changed default shell to Zsh"
 
 # Add wireshark group
