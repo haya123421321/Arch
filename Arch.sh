@@ -54,8 +54,11 @@ mkdir -p ~/.config/sublime-text/Packages/User
 cat Arch/configs/Keybinds.txt > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
 cat Arch/configs/Settings.txt > .config/sublime-text/Packages/User/Preferences.sublime-settings
 mkdir -p ~/.config/konsave/profiles
+mkdir -p ~/.local/share/color-schemes
 cp -r Arch/configs/Main ~/.config/konsave/profiles/
+cp Arch/configs/Main.Colors ~/.local/share/color-schemes/
 konsave -a Main 2>&1
+
 echo "Copied configuration files."
 
 # Installing sublime packages
