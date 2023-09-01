@@ -115,8 +115,7 @@ echo "Added group 'wireshark' to user"
 echo "$password" | sudo -S rm -R Arch
 echo "Removed cloned GitHub repository"
 
-# Create some text files with specific content
-echo "Taskbar icons: Firefox Dolphin SystemSettings SystemMonitor" > TaskbarIcons
+# Create a note for firefox extensions
 echo "Get Bitwarden, FoxyProxy and Hacktools" > Firefox_extension
 
 # Display a message indicating the completion of the script
