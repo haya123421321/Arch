@@ -93,7 +93,7 @@ echo "Moved custom configurations to their respective locations"
 # Setup i3 configs
 cat "Arch/configs/i3 config" > ~/.config/i3/config
 cat Arch/configs/i3status.conf > ~/.i3status.conf
-cp Arch/configs/Wallpaper.jpg ~/Pictures
+cp --parents Arch/configs/Wallpaper.jpg ~/Pictures/Wallpaper.jpg
 mkdir ~/.config/kitty
 cat Arch/configs/kitty.conf > ~/.config/kitty/kitty.conf
 
