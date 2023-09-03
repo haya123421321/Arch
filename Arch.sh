@@ -70,7 +70,7 @@ for file in $(ls ~/Scripts/MN/*);do ln -sf $file ~/Scripts/Scripts/$(basename $f
 git clone https://github.com/Diolinux/PhotoGIMP
 mkdir -p ~/.config/GIMP/2.10/
 cp -r PhotoGIMP/.var/app/org.gimp.GIMP/config/GIMP/2.10/* ~/.config/GIMP/2.10/
-echo "$password" | sudo -S rm -R PhotoGIMP
+rm -rf PhotoGIMP
 
 # Set SDDM theme to 'slice'
 if [ -f /etc/sddm.conf ]; then
