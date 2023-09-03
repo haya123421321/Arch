@@ -68,7 +68,8 @@ for file in $(ls ~/Scripts/MN/*);do ln -sf $file ~/Scripts/Scripts/$(basename $f
 
 # Setup PhotoGIMP
 git clone https://github.com/Diolinux/PhotoGIMP
-cp -r --parents PhotoGIMP/.var/app/org.gimp.GIMP/config/GIMP/2.10/* ~/.config/GIMP/2.10/
+mkdir -p ~/.config/GIMP/2.10/
+cp -r PhotoGIMP/.var/app/org.gimp.GIMP/config/GIMP/2.10/* ~/.config/GIMP/2.10/
 rm -R PhotoGIMP
 
 # Set SDDM theme to 'slice'
