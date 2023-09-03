@@ -70,6 +70,7 @@ for file in $(ls ~/Scripts/MN/*);do ln -sf $file ~/Scripts/Scripts/$(basename $f
 git clone https://github.com/Diolinux/PhotoGIMP
 mkdir -p ~/.config/GIMP/2.10/
 cp -r PhotoGIMP/.var/app/org.gimp.GIMP/config/GIMP/2.10/* ~/.config/GIMP/2.10/
+sed -i '/(toolbox-group-menu-mode click)/a (icon-size medium)' ~/.config/GIMP/2.10/gimprc
 rm -rf PhotoGIMP
 
 # Set SDDM theme to 'slice'
