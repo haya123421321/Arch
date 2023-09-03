@@ -66,6 +66,11 @@ git clone https://github.com/haya123421321/Scripts
 for file in $(ls ~/Scripts/Youtube/*.py);do ln -sf $file ~/Scripts/Scripts/$(basename $file);done
 for file in $(ls ~/Scripts/MN/*);do ln -sf $file ~/Scripts/Scripts/$(basename $file);done
 
+# Setup PhotoGIMP
+git clone https://github.com/Diolinux/PhotoGIMP
+cp -r --parents PhotoGIMP/.var/app/org.gimp.GIMP/config/GIMP/2.10/* ~/.config/GIMP/2.10/
+rm -R PhotoGIMP
+
 # Set SDDM theme to 'slice'
 if [ -f /etc/sddm.conf ]; then
     sudo sed -i "/^\[Theme\]/,/^\[/ s/^Current=.*/Current=slice/" /etc/sddm.conf
