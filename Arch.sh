@@ -50,11 +50,6 @@ cp Arch/configs/Main.colors ~/.local/share/color-schemes/
 konsave -a Main 
 plasma-apply-colorscheme Main
 
-# Installing sublime packages
-subl -b --command "install_package_control"
-subl -b --command "advanced_install_package {\"packages\": \"Anaconda\"}"
-sed -i 's/"anaconda_linting"\s*:\s*true,/"anaconda_linting" : false,/' ~/.config/sublime-text/Packages/Anaconda/Anaconda.sublime-settings 
-
 # Change default shell to Zsh
 printf "$password\n/bin/zsh" | chsh
 
