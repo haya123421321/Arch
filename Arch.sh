@@ -29,7 +29,7 @@ cd /opt/yay-git
 yes | makepkg -si > /dev/null 
 
 # Install AUR packages using yay
-echo "$password" | yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 freedownloadmanager konsave libunity google-chrome sddm-slice-git
+echo "$password" | yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 spotify-adblock freedownloadmanager konsave libunity google-chrome sddm-slice-git
 pip install bs4 selenium requests pytube ffmpeg --break-system-packages 
 
 # Clone configuration files from GitHub repository
