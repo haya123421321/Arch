@@ -39,7 +39,7 @@ git clone https://github.com/haya123421321/Arch.git
 # Copy configuration files to the appropriate locations
 echo "$password" | sudo -S cat Arch/configs/zshrc > ~/.zshrc
 echo "$password" | sudo -S cat Arch/configs/p10k.zsh > ~/.p10k.zsh
-echo 'export PATH=$PATH:/usr/sbin:$(echo ~)/Scripts/Scripts:$(echo ~)/.local/bin' >> ~/.zshrc
+echo 'export PATH=$PATH:/usr/sbin:$(echo ~)/Scripts/Scripts' >> ~/.zshrc
 mkdir -p ~/.config/sublime-text/Packages/User
 cat Arch/configs/Keybinds.txt > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
 cat Arch/configs/Settings.txt > .config/sublime-text/Packages/User/Preferences.sublime-settings
