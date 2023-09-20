@@ -192,13 +192,13 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status --config ~/.i3status.conf
     	colors {
-        background #282c34
+        background #1a1b26
         statusline #ffffff
         separator #666666
 
-        focused_workspace  #ffffff #282c34 #ffffff
-        active_workspace   #333333 #5f676a #ffffff
-        inactive_workspace #333333 #222222 #888888
+        focused_workspace  #ffffff #1a1b26 #ffffff
+        active_workspace   #1a1b26 #1a1b26 #ffffff
+        inactive_workspace #1a1b26 #1a1b26 #888888
         urgent_workspace   #2f343a #900000 #ffffff
         binding_mode       #2f343a #900000 #ffffff
     }
@@ -214,10 +214,13 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background       #ffffff
 
+
 # Gaps
 gaps inner 4
 gaps outer 2
 
+default_border pixel 1
+default_floating_border pixel 1
 
 exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpaper.jpg
 exec --no-startup-id /usr/bin/compton
