@@ -150,7 +150,7 @@ X-KDE-RunOnDiscreteGpu=true\n\
 
 spotify="[Desktop Entry]\n\
 Categories=Audio;Music;Player;AudioVideo;\n\
-Exec=$(which spotify-launcher) %U\n\
+Exec=$(which spotify) %U\n\
 GenericName=Music Player\n\
 Icon=spotify-launcher\n\
 MimeType=x-scheme-handler/spotify;\n\
