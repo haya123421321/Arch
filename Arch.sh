@@ -16,7 +16,7 @@ echo "$password" | sudo -S sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman
 
 # Update system and install packages
 echo "$password" | sudo -S pacman -Syyu --noconfirm 
-echo "$password" | sudo -S pacman -S base noto-fonts-emoji gimp python-pipx python-pip virtualbox virtualbox-guest-utils wine sqlitebrowser ttf-hack lutris vlc base-devel fontconfig shotwell steam discord bitwarden dolphin binutils linux-headers zsh gcc ntfs-3g git make zsh-autosuggestions zsh-completions zsh-syntax-highlighting vim --noconfirm 
+echo "$password" | sudo -S pacman -S base noto-fonts-emoji gimp python-pipx python-pip virtualbox virtualbox-guest-utils wine sqlitebrowser spotify-launcher ttf-hack lutris vlc base-devel fontconfig shotwell steam discord bitwarden dolphin binutils linux-headers zsh gcc ntfs-3g git make zsh-autosuggestions zsh-completions zsh-syntax-highlighting vim --noconfirm 
 
 # Update font cache
 fc-cache
@@ -29,7 +29,7 @@ cd /opt/yay-git
 yes | makepkg -si > /dev/null 
 
 # Install AUR packages using yay
-echo "$password" | yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 spotify-adblock freedownloadmanager konsave libunity google-chrome sddm-slice-git
+echo "$password" | yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 freedownloadmanager konsave libunity google-chrome sddm-slice-git
 pip install bs4 selenium requests pytube ffmpeg --break-system-packages 
 
 # Clone configuration files from GitHub repository
@@ -150,7 +150,7 @@ X-KDE-RunOnDiscreteGpu=true\n\
 
 spotify="[Desktop Entry]\n\
 Categories=Audio;Music;Player;AudioVideo;\n\
-Exec=$(which spotify) %U\n\
+Exec=$(which spotify-launcher) %U\n\
 GenericName=Music Player\n\
 Icon=spotify-launcher\n\
 MimeType=x-scheme-handler/spotify;\n\
