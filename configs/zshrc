@@ -29,6 +29,9 @@ zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=2000
