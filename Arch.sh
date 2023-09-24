@@ -69,7 +69,7 @@ cp -r PhotoGIMP/.var/app/org.gimp.GIMP/config/GIMP/2.10/* ~/.config/GIMP/2.10/
 sed -i '/(toolbox-group-menu-mode click)/a (icon-size medium)' ~/.config/GIMP/2.10/gimprc
 rm -rf PhotoGIMP
 
-# Set SDDM theme to 'slice'
+# Set SDDM theme to 'Dracula'
 if [ -f /etc/sddm.conf ]; then
     sudo sed -i "/^\[Theme\]/,/^\[/ s/^Current=.*/Current=Dracula/" /etc/sddm.conf
 else
