@@ -29,7 +29,7 @@ cd /opt/yay-git
 yes | makepkg -si > /dev/null 
 
 # Install AUR packages using yay
-echo "$password" | yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 freedownloadmanager konsave libunity google-chrome sddm-slice-git
+echo "$password" | yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 freedownloadmanager konsave libunity google-chrome dracula-kde-theme-git
 pip install bs4 selenium requests pytube ffmpeg --break-system-packages 
 
 # Clone configuration files from GitHub repository
@@ -43,11 +43,13 @@ echo 'export PATH=$PATH:/usr/sbin:$(echo ~)/Scripts/Scripts' >> ~/.zshrc
 mkdir -p ~/.config/sublime-text/Packages/User
 cat Arch/configs/Keybinds.txt > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
 cat Arch/configs/Settings.txt > .config/sublime-text/Packages/User/Preferences.sublime-settings
+cp --parents Arch/configs/dracula-purplish.png ~/.local/share/wallpapers/MnEGJu-Dracula-Wallpapers/
 mkdir -p ~/.config/konsave/profiles
 mkdir -p ~/.local/share/color-schemes
 cp -r Arch/configs/Main ~/.config/konsave/profiles/
-konsave -a Main 
-#plasma-apply-colorscheme Main
+plasma-apply-lookandfeel -a Dracula
+plasma-apply-wallpaperimage ~/.local/share/wallpapers/MnEGJu-Dracula-Wallpapers/dracula-purplish.png
+konsave -a Main
 
 # Change default shell to Zsh
 printf "$password\n/bin/zsh" | chsh
