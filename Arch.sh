@@ -43,10 +43,8 @@ echo 'export PATH=$PATH:/usr/sbin:$(echo ~)/Scripts/Scripts' >> ~/.zshrc
 mkdir -p ~/.config/sublime-text/Packages/User
 cat Arch/configs/Keybinds.txt > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
 cat Arch/configs/Settings.txt > .config/sublime-text/Packages/User/Preferences.sublime-settings
-cp --parents Arch/configs/dracula-purplish.png ~/.local/share/wallpapers/MnEGJu-Dracula-Wallpapers/
-mkdir -p ~/.config/konsave/profiles
-mkdir -p ~/.local/share/color-schemes
-cp -r Arch/configs/Main ~/.config/konsave/profiles/
+mkdir ~/.local/share/wallpapers/MnEGJu-Dracula-Wallpapers/ && cp Arch/configs/dracula-purplish.png ~/.local/share/wallpapers/MnEGJu-Dracula-Wallpapers/
+mkdir -p ~/.config/konsave/profiles && cp -r Arch/configs/Main ~/.config/konsave/profiles/
 plasma-apply-lookandfeel -a Dracula
 plasma-apply-wallpaperimage ~/.local/share/wallpapers/MnEGJu-Dracula-Wallpapers/dracula-purplish.png
 konsave -a Main
