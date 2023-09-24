@@ -69,9 +69,9 @@ rm -rf PhotoGIMP
 
 # Set SDDM theme to 'slice'
 if [ -f /etc/sddm.conf ]; then
-    sudo sed -i "/^\[Theme\]/,/^\[/ s/^Current=.*/Current=slice/" /etc/sddm.conf
+    sudo sed -i "/^\[Theme\]/,/^\[/ s/^Current=.*/Current=Dracula/" /etc/sddm.conf
 else
-    echo -e "[Theme]\nCurrent=slice" | sudo tee /etc/sddm.conf
+    echo -e "[Theme]\nCurrent=Dracula" | sudo tee /etc/sddm.conf
 fi
 
 # Set up autostart entries for various applications
