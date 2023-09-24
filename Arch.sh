@@ -46,9 +46,8 @@ cat Arch/configs/Settings.txt > .config/sublime-text/Packages/User/Preferences.s
 mkdir -p ~/.config/konsave/profiles
 mkdir -p ~/.local/share/color-schemes
 cp -r Arch/configs/Main ~/.config/konsave/profiles/
-cp Arch/configs/Main.colors ~/.local/share/color-schemes/
 konsave -a Main 
-plasma-apply-colorscheme Main
+#plasma-apply-colorscheme Main
 
 # Change default shell to Zsh
 printf "$password\n/bin/zsh" | chsh
