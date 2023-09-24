@@ -5,14 +5,20 @@ update_info=ksmserver_update_loginMode_value.upd:ksmserver_update_loginMode_valu
 count=0
 
 [Session: saved at previous logout]
-clientId1=105465707a000169309745200000010560004
-clientId2=105465707a000169309745200000010560006
-count=2
+clientId1=105465707a000169555633700000011420004
+clientId2=105465707a000169555633800000011420006
+clientId3=105465707a000169555637400000011420008
+count=3
+discardCommand3[$e]=rm,$HOME/.config/session/konsole_105465707a000169555637400000011420008_1695556401_336319
 program1=/usr/lib/DiscoverNotifier
 program2=pulseaudio
-restartCommand1=/usr/lib/DiscoverNotifier,-session,105465707a000169309745200000010560004_1693106500_536254
+program3=/usr/bin/konsole
+restartCommand1=/usr/lib/DiscoverNotifier,-session,105465707a000169555633700000011420004_1695556401_336308
 restartCommand2=
+restartCommand3=/usr/bin/konsole,-session,105465707a000169555637400000011420008_1695556401_336319
 restartStyleHint1=0
 restartStyleHint2=0
+restartStyleHint3=0
 userId1=Tepz
 userId2=Tepz
+userId3=Tepz
