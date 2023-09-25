@@ -80,8 +80,6 @@ echo "Copied custom Zsh configuration and powerlevel10k theme"
 
 # Copy other custom configurations to their respective directories
 echo "$password" | sudo -S cp -r Arch/Tepz .
-##mkdir -p .config/terminator
-mkdir -p .config/sublime-text/Packages/User
 echo "$password" | sudo -S mv Arch/KaliLists Arch/wordlists
 echo "$password" | sudo -S mv Arch/SecLists Arch/wordlists
 gunzip Arch/wordlists/rockyou.txt.gz
@@ -90,11 +88,16 @@ mv Arch/Command-injection-bypass Arch/wordlists/SecLists/Payloads
 sudo mv Arch/wordlists /usr/share/
 echo "Moved custom configurations to their respective locations"
 
+# Make some directory you need
+mkdir ~/.config/i3
+mkdir ~/.config/kitty
+mkdir ~/Pictures
+mkdir -p .config/sublime-text/Packages/User
+
 # Setup i3 configs
 cat "Arch/configs/i3 config" > ~/.config/i3/config
 cat Arch/configs/i3status.conf > ~/.i3status.conf
-cp --parents Arch/configs/Wallpaper.jpg ~/Pictures/Wallpaper.jpg
-mkdir ~/.config/kitty
+cp Arch/configs/Wallpaper.jpg ~/Pictures/Wallpaper.jpg
 cat Arch/configs/kitty.conf > ~/.config/kitty/kitty.conf
 
 # Copy configuration files for Sublime Text
