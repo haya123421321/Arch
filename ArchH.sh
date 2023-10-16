@@ -51,6 +51,7 @@ echo "$password" | sudo -S git clone https://aur.archlinux.org/yay-git.git
 echo "$password" | sudo -S chown -R $User:$User ./yay-git
 cd /opt/yay-git
 yes | makepkg -si  
+echo "$password" | sudo -S rm -R /opt/yay-git
 echo "$password" | yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 sddm-slice-git libunity autotiling  
 echo "Cloned yay AUR helper and installed some packages from AUR"
 
