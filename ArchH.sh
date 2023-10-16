@@ -104,8 +104,8 @@ mkdir -p ~/.config/sublime-text/Packages/User
 mkdir ~/.local/share/wallpapers && cp Arch/configs/Wallpaper.jpg ~/.local/share/wallpapers/
 mkdir -p ~/.config/konsave/profiles && cp -r Arch/configs/MainH ~/.config/konsave/profiles/
 
-plasma-apply-wallpaperimage ~/.local/share/wallpapers/Wallpaper.jpg
 konsave -a MainH
+plasma-apply-wallpaperimage ~/.local/share/wallpapers/Wallpaper.jpg
 
 # Copy configuration files for Sublime Text
 cat Arch/configs/Keybinds.txt > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
