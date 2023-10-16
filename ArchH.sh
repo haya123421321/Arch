@@ -32,7 +32,7 @@ echo "Removed BlackArch bootstrap script"
 # Update and install packages from official repositories
 echo "Updating and installing some packages"
 echo "$password" | sudo -S pacman -Syyu --noconfirm  
-echo "$password" | sudo -S pacman -S git firefox sddm base noto-fonts-emoji python-pipx picom feh gnu-netcat ttf-dejavu i3-wm i3status i3lock dmenu sqlitebrowser vlc base-devel fontconfig shotwell dolphin binutils linux-headers whois zsh gcc enum4linux make p7zip zsh-completions zsh-syntax-highlighting openvpn nmap freerdp wireshark-qt aircrack-ng wget gdb vim man sqlmap python2 nikto nfs-utils ruby-irb kitty gobuster binwalk steghide perl-image-exiftool inetutils curlftpfs burpsuite john exploitdb metasploit ffuf hydra hashcat python-pip python2-pip hashid net-tools --noconfirm  
+echo "$password" | sudo -S pacman -S git firefox sddm base noto-fonts-emoji python-pipx picom feh gnu-netcat ttf-dejavu sqlitebrowser vlc base-devel fontconfig shotwell dolphin binutils linux-headers whois zsh gcc enum4linux make p7zip zsh-completions zsh-syntax-highlighting openvpn nmap freerdp wireshark-qt aircrack-ng wget gdb vim man sqlmap python2 nikto nfs-utils ruby-irb kitty gobuster binwalk steghide perl-image-exiftool inetutils curlftpfs burpsuite john exploitdb metasploit ffuf hydra hashcat python-pip python2-pip hashid net-tools --noconfirm  
 echo "Updated and installed packages from official repositories"
 
 echo "$password" | sudo -S pacman -Rsn lightdm --noconfirm  
@@ -88,17 +88,12 @@ mv Arch/Command-injection-bypass Arch/wordlists/SecLists/Payloads
 sudo mv Arch/wordlists /usr/share/
 echo "Moved custom configurations to their respective locations"
 
-# Make some directory you need
-mkdir ~/.config/i3
-mkdir ~/.config/kitty
+mkdir ~/.config/terminator
 mkdir ~/Pictures
-mkdir -p .config/sublime-text/Packages/User
+mkdir -p ~/.config/sublime-text/Packages/User
 
-# Setup i3 configs
-cat "Arch/configs/i3 config" > ~/.config/i3/config
-cat Arch/configs/i3status.conf > ~/.i3status.conf
 cp Arch/configs/Wallpaper.jpg ~/Pictures/Wallpaper.jpg
-cat Arch/configs/kitty.conf > ~/.config/kitty/kitty.conf
+cat Arch/configs/Terminator_config.txt > ~/.config/terminator/config
 
 # Copy configuration files for Sublime Text
 cat Arch/configs/Keybinds.txt > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
