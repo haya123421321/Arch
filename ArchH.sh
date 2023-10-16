@@ -86,14 +86,15 @@ gunzip Arch/wordlists/rockyou.txt.gz
 rm Arch/wordlists/README.md Arch/wordlists/dnsmap.txt Arch/wordlists/sqlmap.txt
 mv Arch/Command-injection-bypass Arch/wordlists/SecLists/Payloads
 sudo mv Arch/wordlists /usr/share/
+plasma-apply-lookandfeel -a org.kde.breezedark.desktop
 echo "Moved custom configurations to their respective locations"
 
 mkdir ~/.config/terminator
-mkdir ~/Pictures
 mkdir -p ~/.config/sublime-text/Packages/User
 
-cp Arch/configs/Wallpaper.jpg ~/Pictures/Wallpaper.jpg
+cp Arch/configs/Wallpaper.jpg ~/.local/share/wallpapers/
 cat Arch/configs/Terminator_config.txt > ~/.config/terminator/config
+plasma-apply-wallpaperimage ~/.local/share/wallpapers/Wallpaper.jpg
 
 # Copy configuration files for Sublime Text
 cat Arch/configs/Keybinds.txt > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
