@@ -99,13 +99,13 @@ sudo mv Arch/wordlists /usr/share/
 plasma-apply-lookandfeel -a org.kde.breezedark.desktop
 echo "Moved custom configurations to their respective locations"
 
-mkdir ~/.config/terminator
+mkdir ~/.config/terminator && cat Arch/configs/Terminator_config.txt > ~/.config/terminator/config
 mkdir -p ~/.config/sublime-text/Packages/User
-mkdir ~/.local/share/wallpapers
+mkdir ~/.local/share/wallpapers && cp Arch/configs/Wallpaper.jpg ~/.local/share/wallpapers/
+mkdir -p ~/.config/konsave/profiles && cp -r Arch/configs/MainH ~/.config/konsave/profiles/
 
-cp Arch/configs/Wallpaper.jpg ~/.local/share/wallpapers/
-cat Arch/configs/Terminator_config.txt > ~/.config/terminator/config
 plasma-apply-wallpaperimage ~/.local/share/wallpapers/Wallpaper.jpg
+konsave -a MainH
 
 # Copy configuration files for Sublime Text
 cat Arch/configs/Keybinds.txt > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
