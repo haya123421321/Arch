@@ -91,6 +91,7 @@ echo "Moved custom configurations to their respective locations"
 
 mkdir ~/.config/terminator
 mkdir -p ~/.config/sublime-text/Packages/User
+mkdir ~/.local/share/wallpapers
 
 cp Arch/configs/Wallpaper.jpg ~/.local/share/wallpapers/
 cat Arch/configs/Terminator_config.txt > ~/.config/terminator/config
