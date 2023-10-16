@@ -1,23 +1,28 @@
 [global_config]
-  title_transmit_bg_color = "#2777ff"
-  title_receive_bg_color = "#d41919"
-  title_inactive_fg_color = "#ffffff"
-  title_inactive_bg_color = "#23252e"
+  suppress_multiple_term_dialog = True
 [keybindings]
   split_horiz = <Primary><Shift>Down
   split_vert = <Primary><Shift>Right
-  resize_down = <Primary><Shift>ae
-  resize_right = ooblique
-  scaled_zoom = <Primary><Alt>plus
-  reset = <Primary><Shift>ooblique
+  resize_up = <Primary><Alt>Up
+  resize_down = <Primary><Alt>Down
+  resize_left = <Primary><Alt>Left
+  resize_right = <Primary><Alt>Right
 [profiles]
   [[default]]
-    background_darkness = 0.95
+    background_color = "#1a1b26"
+    background_darkness = 0.8
     background_type = transparent
-    cursor_color = "#aaaaaa"
-    foreground_color = "#ffffff"
+    cursor_fg_color = "#1a1b26"
+    cursor_bg_color = "#c0caf5"
+    font = DejaVu Sans Mono 12
+    foreground_color = "#c0caf5"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scroll_on_keystroke = False
     scrollback_infinite = True
-    palette = "#1f2229:#d41919:#5ebdab:#fea44c:#367bf0:#9755b3:#49aee6:#e6e6e6:#198388:#ec0101:#47d4b9:#ff8a18:#277fff:#962ac3:#05a1f7:#ffffff"
+    palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000ee:#cd00cd:#00cdcd:#e5e5e5:#7f7f7f:#ff0000:#00ff00:#ffff00:#5c5cff:#ff00ff:#00ffff:#ffffff"
+    use_system_font = False
+    bold_is_bright = True
 [layouts]
   [[default]]
     [[[window0]]]
@@ -26,4 +31,5 @@
     [[[child1]]]
       type = Terminal
       parent = window0
+      profile = default
 [plugins]
