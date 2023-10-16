@@ -40,6 +40,15 @@ echo "$password" | sudo -S pacman -Rsn lightdm --noconfirm
 # Enable and start SDDM
 echo "$password" | sudo -S systemctl enable sddm
 
+# Check if the system is a VM and enable guest
+if [ $(sudo dmidecode | grep -m 1 "Product Name" | cut -d ":" -f 2 | tr -d " ") == "VirtualBox" ]
+then
+	echo "$password" | sudo -S pacman -S virtualbox-guest-utils
+    echo "$password" | sudo -S systemctl enable vboxservice
+else
+	echo "Not a VM"
+fi
+
 # Clear font cache
 fc-cache
 echo "Cleared font cache"
