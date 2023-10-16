@@ -43,7 +43,7 @@ echo "$password" | sudo -S systemctl enable sddm
 # Check if the system is a VM and enable guest
 if [ $(sudo dmidecode | grep -m 1 "Product Name" | cut -d ":" -f 2 | tr -d " ") == "VirtualBox" ]
 then
-    echo "$password" | sudo -S pacman -S virtualbox-guest-utils
+    echo "$password" | sudo -S pacman -S virtualbox-guest-utils --noconfirm
     echo "$password" | sudo -S systemctl enable vboxservice
 else
 	echo "Not a VM"
