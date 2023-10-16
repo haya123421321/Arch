@@ -7,6 +7,7 @@
   resize_down = <Primary><Alt>Down
   resize_left = <Primary><Alt>Left
   resize_right = <Primary><Alt>Right
+  toggle_zoom = <Primary><Alt>plus
 [profiles]
   [[default]]
     background_color = "#1a1b26"
