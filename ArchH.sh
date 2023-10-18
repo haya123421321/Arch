@@ -112,7 +112,7 @@ cat Arch/configs/Keybinds.txt > '.config/sublime-text/Packages/User/Default (Lin
 cat Arch/configs/Settings.txt > .config/sublime-text/Packages/User/Preferences.sublime-settings
 echo "Copied configuration files for Sublime Text"
 
-for file in $(ls /opt/metasploit/tools/exploit/*.rb);do ln -sf $file /usr/bin/$(basename $file);done
+for file in $(ls /opt/metasploit/tools/exploit/*.rb);do echo "$password" | sudo -S ln -sf $file /usr/bin/$(basename $file);done
 
 
 # Change the default shell to Zsh for the current user
