@@ -59,6 +59,7 @@ echo "$password" | sudo -S rm -R Arch
 git clone https://github.com/haya123421321/Scripts
 for file in $(ls ~/Scripts/Youtube/*.py);do ln -sf $file ~/Scripts/Scripts/$(basename $file);done
 for file in $(ls ~/Scripts/MN/*);do ln -sf $file ~/Scripts/Scripts/$(basename $file);done
+chmod +x ~/Scripts/Scripts/*
 
 # Setup PhotoGIMP
 git clone https://github.com/Diolinux/PhotoGIMP
