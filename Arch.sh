@@ -202,14 +202,15 @@ echo "Put night color to 4500" >> Note
 
 echo "Finished!"
 
-read -p "do you wanna reboot now? [Y/n]" choice
-choice=${choice^^}
-
-if [[ "$choice" == "Y" ]]; then
-    reboot
-elif [[ "$choice" == "N" ]]; then
-    echo "Ok."
-else
-    echo "Invalid choice. Please enter 'Y' or 'n'."
+while true; do
     read -p "do you wanna reboot now? [Y/n]" choice
-fi
+    choice=${choice^^}
+
+    if [[ "$choice" == "Y" ]]; then
+    reboot
+    elif [[ "$choice" == "N" ]]; then
+    echo "Ok."
+    else
+        echo "Invalid choice. Please enter 'Y' or 'n'."
+        read -p "do you wanna reboot now? [Y/n]" choice
+    fi
