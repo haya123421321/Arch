@@ -211,4 +211,5 @@ elif [[ "$choice" == "N" ]]; then
     echo "Ok."
 else
     echo "Invalid choice. Please enter 'Y' or 'n'."
+    read -p "do you wanna reboot now? [Y/n]" choice
 fi
