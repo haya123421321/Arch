@@ -207,10 +207,11 @@ while true; do
     choice=${choice^^}
 
     if [[ "$choice" == "Y" ]]; then
-    reboot
+        reboot
     elif [[ "$choice" == "N" ]]; then
-    echo "Ok."
+        echo "Ok."
+        break
     else
         echo "Invalid choice. Please enter 'Y' or 'n'."
-        read -p "do you wanna reboot now? [Y/n]" choice
     fi
+done
