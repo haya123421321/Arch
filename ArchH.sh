@@ -135,15 +135,16 @@ echo "Get Bitwarden, FoxyProxy and Hacktools" > Firefox_extension
 echo "Finished!"
 
 # Prompt the user if they want to reboot the system
-read -p "Do you want to reboot now? [Y/n]" choice
-choice=${choice^^}
+while true; do
+    read -p "do you wanna reboot now? [Y/n]" choice
+    choice=${choice^^}
 
-# If the user chooses 'Y', reboot the system; if 'N', print "Ok."; otherwise, show an error message
-if [[ "$choice" == "Y" ]]; then
-    echo "Rebooting..."
-    reboot
-elif [[ "$choice" == "N" ]]; then
-    echo "Ok."
-else
-    echo "Invalid choice. Please enter 'Y' or 'n'."
-fi
+    if [[ "$choice" == "Y" ]]; then
+        reboot
+    elif [[ "$choice" == "N" ]]; then
+        echo "Ok."
+        break
+    else
+        echo "Invalid choice. Please enter 'Y' or 'n'."
+    fi
+done
