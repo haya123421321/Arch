@@ -25,7 +25,7 @@ chmod +x strap.sh
 echo "Downloaded BlackArch Linux bootstrap script and set permissions"
 
 # Run the BlackArch bootstrap script with sudo access
-sudo ./strap.sh  
+yes | sudo ./strap.sh  
 echo "Executed BlackArch bootstrap script"
 
 # Remove the bootstrap script after it's been executed
