@@ -16,6 +16,9 @@ User=$(whoami)
 echo "$password" | sudo -S sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf 
 echo "Enabled [multilib] repository in /etc/pacman.conf"
 
+echo "Updating the system"
+echo "$password" | sudo -S pacman -Syyu --noconfirm  
+
 # Download BlackArch Linux bootstrap script and set permissions
 curl -O https://blackarch.org/strap.sh  
 chmod +x strap.sh
@@ -29,9 +32,6 @@ echo "Executed BlackArch bootstrap script"
 rm strap.sh
 echo "Removed BlackArch bootstrap script"
 
-# Update and install packages from official repositories
-echo "Updating and installing some packages"
-echo "$password" | sudo -S pacman -Syyu --noconfirm  
 echo "$password" | sudo -S pacman -S git firefox sddm base noto-fonts-emoji python-pipx mlocate spike-fuzzer wpscan gnu-netcat cewl crunch ttf-dejavu sqlitebrowser vlc base-devel fontconfig shotwell dolphin binutils linux-headers whois zsh gcc enum4linux make p7zip zsh-completions zsh-syntax-highlighting openvpn nmap freerdp wireshark-qt aircrack-ng wget gdb vim man sqlmap python2 nikto nfs-utils ruby-irb terminator gobuster binwalk steghide perl-image-exiftool inetutils curlftpfs burpsuite john exploitdb metasploit ffuf hydra hashcat python-pip python2-pip hashid net-tools --noconfirm  
 echo "Updated and installed packages from official repositories"
 
