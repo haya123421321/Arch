@@ -186,6 +186,15 @@ RestartSec=3600\n\
 WantedBy=multi-user.target\n\
 "
 
+Viewer="[Desktop Entry]\n
+Name=Viewer\n
+Exec=$(~)/Scripts/Viewer/Viewer.py\n
+Icon=$(~)/.local/share/icons/viewer.jpg\n
+Type=Application\n
+Categories=Utility;\n
+"
+
+
 echo -e "$anichecker" > /tmp/anichecker_temp
 sudo mv /tmp/anichecker_temp /etc/systemd/system/anichecker.service
 echo "$password" | sudo -S systemctl enable anichecker 
