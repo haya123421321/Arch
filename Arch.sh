@@ -57,7 +57,8 @@ echo "$password" | sudo -S rm -R Arch
 
 # Get the Scripts folder
 git clone https://github.com/haya123421321/Scripts
-for file in $(ls ~/Scripts/Youtube/*.py);do ln -sf $file ~/Scripts/Scripts/$(basename $file);done
+for file in $(~/Scripts/Youtube/*.py);do ln -sf $file ~/Scripts/Scripts/$(basename $file);done
+for file in $(~/Scripts/Viewer/*.py);do ln -sf $file ~/Scripts/Scripts/$(basename $file);done
 chmod +x ~/Scripts/Scripts/*
 
 # Setup PhotoGIMP
