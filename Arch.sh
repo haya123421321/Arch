@@ -43,6 +43,9 @@ echo 'export PATH=$PATH:/usr/sbin:$(echo ~)/Scripts/Scripts' >> ~/.zshrc
 mkdir -p ~/.config/sublime-text/Packages/User
 cat Arch/configs/Keybinds.txt > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
 cat Arch/configs/Settings.txt > .config/sublime-text/Packages/User/Preferences.sublime-settings
+mkdir -p ~/.local/share/icons
+mkdir -p ~/.local/share/applications
+cp Arch/configs/viewer.jpg ~/.local/share/icons
 mkdir -p ~/.local/share/wallpapers/MnEGJu-Dracula-Wallpapers/ && cp Arch/configs/dracula-purplish.png ~/.local/share/wallpapers/MnEGJu-Dracula-Wallpapers/
 mkdir -p ~/.config/konsave/profiles && cp -r Arch/configs/Main ~/.config/konsave/profiles/
 plasma-apply-lookandfeel -a Dracula
@@ -199,6 +202,7 @@ echo -e "$anichecker" > /tmp/anichecker_temp
 sudo mv /tmp/anichecker_temp /etc/systemd/system/anichecker.service
 echo "$password" | sudo -S systemctl enable anichecker 
 
+echo -e "$Viewer" > ~/.local/share/applications/Viewer.desktop
 echo -e "$discord" > ~/.config/autostart/discord.desktop
 echo -e "$FDM" > ~/.config/autostart/FDM.desktop
 echo -e "$steam" > ~/.config/autostart/steam.desktop
