@@ -191,8 +191,8 @@ WantedBy=multi-user.target\n\
 
 Viewer="[Desktop Entry]\n
 Name=Viewer\n
-Exec=$(~)/Scripts/Viewer/Viewer.py\n
-Icon=$(~)/.local/share/icons/viewer.jpg\n
+Exec=$(echo ~)/Scripts/Viewer/Viewer.py\n
+Icon=$(echo ~)/.local/share/icons/viewer.jpg\n
 Type=Application\n
 Categories=Utility;\n
 "
