@@ -48,7 +48,6 @@ mkdir -p ~/.local/share/applications
 cp Arch/configs/viewer.jpg ~/.local/share/icons
 mkdir -p ~/.local/share/wallpapers/MnEGJu-Dracula-Wallpapers/ && cp Arch/configs/dracula-purplish.png ~/.local/share/wallpapers/MnEGJu-Dracula-Wallpapers/
 mkdir -p ~/.config/konsave/profiles && cp -r Arch/configs/Main ~/.config/konsave/profiles/
-plasma-apply-lookandfeel -a Dracula
 plasma-apply-wallpaperimage ~/.local/share/wallpapers/MnEGJu-Dracula-Wallpapers/dracula-purplish.png
 konsave -a Main
 
