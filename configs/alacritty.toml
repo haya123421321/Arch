@@ -3,7 +3,7 @@ opacity = 0.9
 
 [colors.primary]
 background= '0x15161b'
-foreground= '0xc5c8c6'
+foreground= '0xECECEC'
 
 [colors.normal]
 black=   '0x373b41'
@@ -24,3 +24,6 @@ blue=    '0x81a2be'
 magenta= '0xb294bb'
 cyan=    '0x8abeb7'
 white=   '0xc5c8c6'
+
+[keyboard]
+bindings = [{ key = "Return", mods = "super" , action = "ToggleMaximized"}]
