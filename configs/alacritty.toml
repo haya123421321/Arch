@@ -26,4 +26,7 @@ cyan=    '0x8abeb7'
 white=   '0xc5c8c6'
 
 [keyboard]
-bindings = [{ key = "Return", mods = "super" , action = "ToggleMaximized"}]
+bindings = [
+	{ key = "Return", mods = "super" , action = "ToggleMaximized"},
+	{ key = "W", "mods" = "Control | shift", action = "Quit" }
+]
