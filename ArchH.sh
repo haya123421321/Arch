@@ -136,7 +136,7 @@ echo "Removed cloned GitHub repository"
 git clone https://github.com/haya123421321/Nvim
 mkdir ~/.config/nvim/lua -p
 cp -r Nvim/lua/Tepz ~/.config/nvim/lua
-echo "require("Tepz")" > ~/.config/nvim/init.lua
+echo 'require("Tepz")' > ~/.config/nvim/init.lua
 rm -rf Nvim
 
 # Create a note for firefox extensions
