@@ -32,7 +32,7 @@ echo "Executed BlackArch bootstrap script"
 rm strap.sh
 echo "Removed BlackArch bootstrap script"
 
-echo "$password" | sudo -S pacman -S git firefox sddm base noto-fonts-emoji python-pipx mlocate spike-fuzzer wpscan gnu-netcat cewl crunch ttf-dejavu sqlitebrowser vlc base-devel fontconfig shotwell dolphin binutils linux-headers whois zsh gcc enum4linux make p7zip zsh-completions zsh-syntax-highlighting openvpn nmap freerdp wireshark-qt aircrack-ng wget gdb vim man sqlmap python2 nikto nfs-utils ruby-irb terminator gobuster binwalk steghide perl-image-exiftool inetutils curlftpfs burpsuite john exploitdb metasploit ffuf hydra hashcat python-pip python2-pip hashid net-tools --noconfirm  
+echo "$password" | sudo -S pacman -S git alacritty neovim firefox sddm base noto-fonts-emoji python-pipx mlocate spike-fuzzer wpscan gnu-netcat cewl crunch ttf-dejavu sqlitebrowser vlc base-devel fontconfig shotwell dolphin binutils linux-headers whois zsh gcc enum4linux make p7zip zsh-completions zsh-syntax-highlighting openvpn nmap freerdp wireshark-qt aircrack-ng wget gdb vim man sqlmap python2 nikto nfs-utils ruby-irb terminator gobuster binwalk steghide perl-image-exiftool inetutils curlftpfs burpsuite john exploitdb metasploit ffuf hydra hashcat python-pip python2-pip hashid net-tools --noconfirm  
 echo "Updated and installed packages from official repositories"
 
 echo "$password" | sudo -S pacman -Rsn lightdm --noconfirm  
@@ -124,9 +124,20 @@ echo "Changed default shell to Zsh"
 echo "$password" | sudo -S usermod -a -G wireshark $User
 echo "Added group 'wireshark' to user"
 
+# Alacritty
+mkdir ~/.config/alacritty
+cp Arch/configs/alacritty.toml ~/.config/alacritty 
+
 # Remove the cloned GitHub repository
 echo "$password" | sudo -S rm -R Arch
 echo "Removed cloned GitHub repository"
+
+# Neovim setup
+git clone https://github.com/haya123421321/Nvim
+mkdir ~/.config/nvim
+mv Nvim/lua ~/.config/nvim
+echo "require("Tepz")" > ~/.config/nvim/init.lua
+rm -rf Nvim
 
 # Create a note for firefox extensions
 echo "Get Bitwarden, FoxyProxy and Hacktools" > Firefox_extension
