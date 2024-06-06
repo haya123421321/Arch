@@ -65,7 +65,7 @@ echo "$password" | sudo -S rm -R Arch
 git clone https://github.com/haya123421321/Nvim
 mkdir ~/.config/nvim
 mv Nvim/lua ~/.config/nvim
-echo "require("Tepz")" > ~/.config/nvim/init.lua
+echo 'require("Tepz")' > ~/.config/nvim/init.lua
 rm -rf Nvim
 
 # Get the Scripts folder
