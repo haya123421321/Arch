@@ -58,6 +58,9 @@ printf "$password\n/bin/zsh" | chsh
 mkdir ~/.config/alacritty
 cp Arch/configs/alacritty.toml ~/.config/alacritty 
 
+# Tmux
+cp Arch/configs/.tmux.conf ~
+
 # Clean up cloned repository
 echo "$password" | sudo -S rm -R Arch
 
