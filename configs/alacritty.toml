@@ -31,8 +31,7 @@ white=   '0xc5c8c6'
 
 [keyboard]
 bindings = [
-	{ key = "Return", mods = "super" , action = "ToggleMaximized"},
-	#{ key = "W", "mods" = "Control | shift", action = "Quit" },
-	#{ key = "ArrowUp", "mods" = "Control | shift", action = "ScrollLineUp" },
-	#{ key = "ArrowDown", "mods" = "Control | shift", action = "ScrollLineDown" }
+	{key = "Return", mods = "super" , action = "ToggleMaximized"},
+	{key = "w", mods = "Control" , action = "None"},
+	{key = "w", mods = "Control | Shift" , action = "None"},
 ]
