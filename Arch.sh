@@ -16,7 +16,7 @@ echo "$password" | sudo -S sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman
 
 # Update system and install packages
 echo "$password" | sudo -S pacman -Syyu --noconfirm 
-echo "$password" | sudo -S pacman -S base noto-fonts-emoji gimp python-pipx python-pip mlocate virtualbox virtualbox-guest-utils wine sqlitebrowser spotify-launcher ttf-hack ttf-dejavu lutris vlc base-devel fontconfig shotwell steam discord bitwarden dolphin binutils linux-headers zsh gcc ntfs-3g git make zsh-autosuggestions zsh-completions zsh-syntax-highlighting vim --noconfirm 
+echo "$password" | sudo -S pacman -S base alacritty neovim noto-fonts-emoji gimp python-pipx python-pip mlocate virtualbox virtualbox-guest-utils wine sqlitebrowser spotify-launcher ttf-hack ttf-dejavu lutris vlc base-devel fontconfig shotwell steam discord bitwarden dolphin binutils linux-headers zsh gcc ntfs-3g git make zsh-autosuggestions zsh-completions zsh-syntax-highlighting vim --noconfirm 
 
 # Update font cache
 fc-cache
@@ -54,8 +54,19 @@ konsave -a Main
 # Change default shell to Zsh
 printf "$password\n/bin/zsh" | chsh
 
+# Alacritty
+mkdir ~/.config/alacritty
+cp Arch/configs/alacritty.toml ~/.config/alacritty 
+
 # Clean up cloned repository
 echo "$password" | sudo -S rm -R Arch
+
+# Neovim setup
+git clone https://github.com/haya123421321/Nvim
+mkdir ~/.config/nvim
+mv Nvim/lua ~/.config/nvim
+echo "require("Tepz")" > ~/.config/nvim/init.lua
+
 
 # Get the Scripts folder
 git clone https://github.com/haya123421321/Scripts
