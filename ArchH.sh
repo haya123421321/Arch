@@ -135,7 +135,7 @@ echo "Removed cloned GitHub repository"
 # Neovim setup
 git clone https://github.com/haya123421321/Nvim
 mkdir ~/.config/nvim/lua -p
-cp Nvim/lua/Tepz ~/.config/nvim/lua
+cp -r Nvim/lua/Tepz ~/.config/nvim/lua
 echo "require("Tepz")" > ~/.config/nvim/init.lua
 rm -rf Nvim
 
