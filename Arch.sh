@@ -75,6 +75,13 @@ rm -rf Nvim
 git clone https://github.com/haya123421321/Scripts
 for file in ~/Scripts/Youtube/*.py;do ln -sf $file ~/Scripts/Scripts/$(basename $file);done
 for file in ~/Scripts/Viewer/*.py;do ln -sf $file ~/Scripts/Scripts/$(basename $file);done
+cd ~/Scripts/GoScripts/
+for file in *.go;do
+    base_name="${file%.*}"
+    go build $file
+    mv $base_name ../Scripts
+done
+cd
 chmod +x ~/Scripts/Scripts/*
 
 # Setup PhotoGIMP
