@@ -52,6 +52,8 @@ plasma-apply-wallpaperimage ~/.local/share/wallpapers/MnEGJu-Dracula-Wallpapers/
 konsave -a Main
 mkdir -p ~/.config/dunst
 cp Arch/configs/dunstrc ~/.config/dunst
+mkdir -p ~/.config/i3/
+cp Arch/configs/i3_config ~/.config/i3/config
 
 # Change default shell to Zsh
 printf "$password\n/bin/zsh" | chsh
