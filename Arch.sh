@@ -50,6 +50,8 @@ mkdir -p ~/.local/share/wallpapers/MnEGJu-Dracula-Wallpapers/ && cp Arch/configs
 mkdir -p ~/.config/konsave/profiles && cp -r Arch/configs/Main ~/.config/konsave/profiles/
 plasma-apply-wallpaperimage ~/.local/share/wallpapers/MnEGJu-Dracula-Wallpapers/dracula-purplish.png
 konsave -a Main
+mkdir -p ~/.config/dunst
+cp Arch/configs/dunstrc ~/.config/dunst
 
 # Change default shell to Zsh
 printf "$password\n/bin/zsh" | chsh
