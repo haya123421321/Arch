@@ -16,7 +16,7 @@ echo "$password" | sudo -S sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman
 
 # Update system and install packages
 echo "$password" | sudo -S pacman -Syyu --noconfirm 
-echo "$password" | sudo -S pacman -S base alacritty tmux neovim noto-fonts-emoji gimp python-pipx python-pip mlocate virtualbox virtualbox-guest-utils wine sqlitebrowser spotify-launcher ttf-hack ttf-dejavu lutris vlc base-devel fontconfig shotwell steam discord bitwarden dolphin binutils linux-headers zsh gcc ntfs-3g git make zsh-autosuggestions zsh-completions zsh-syntax-highlighting vim --noconfirm 
+echo "$password" | sudo -S pacman -S i3 dmenu dunst redshift base alacritty tmux neovim noto-fonts-emoji gimp python-pipx python-pip mlocate virtualbox virtualbox-guest-utils wine sqlitebrowser spotify-launcher ttf-hack ttf-dejavu lutris vlc base-devel fontconfig shotwell steam discord bitwarden dolphin binutils linux-headers zsh gcc ntfs-3g git make zsh-autosuggestions zsh-completions zsh-syntax-highlighting vim --noconfirm 
 
 # Update font cache
 fc-cache
@@ -29,7 +29,7 @@ cd /opt/yay-git
 yes | makepkg -si > /dev/null 
 
 # Install AUR packages using yay
-echo "$password" | yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 freedownloadmanager konsave libunity google-chrome dracula-kde-theme-git
+echo "$password" | yay -S --noconfirm autotiling zsh-theme-powerlevel10k-git sublime-text-4 freedownloadmanager konsave libunity google-chrome dracula-kde-theme-git
 pip install bs4 selenium requests pytube ffmpeg --break-system-packages 
 
 # Clone configuration files from GitHub repository
