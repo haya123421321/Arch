@@ -1,7 +1,8 @@
 [global]
     origin = bottom-right
     word_wrap = no
-
+    width = 500
+    font = Monospace 12
 
 [urgency_normal]
 
