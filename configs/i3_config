@@ -185,10 +185,12 @@ bindsym $mod+r mode "resize"
 
 # Custom startups
 default_border pixel 1
-exec --no-startup-id autotiling
+exec_always --no-startup-id autotiling
+exec_always --no-startup-id picom
 exec --no-startup-id setxkbmap dk
+exec --no-startup-id feh --bg-scale ~/Pictures/Wallpaper.jpeg
 exec --no-startup-id nvidia-settings --load-config-only
-exec --no-startup-id sleep 1; redshift -P -O 4500
+exec --no-startup-id while true;do cmd=$(redshift -P -O 4500); if [[ $cmd != "Using method"* ]];then sleep 1;else break;fi;done
 exec --no-startup-id xrandr --output DP-0 --mode 1920x1080 --rate 144
 exec --no-startup-id for id in $(xinput list | grep "pointer" | cut -d '=' -f 2 | cut -f 1); do xinput --set-prop $id "libinput Accel Profile Enabled" 0, 1; done
 exec --no-startup-id dunst
