@@ -34,8 +34,11 @@ pip install bs4 selenium requests pytube ffmpeg --break-system-packages
 
 # Clone configuration files from GitHub repository
 cd ~
-git clone https://github.com/haya123421321/Arch.git
-
+if [ -d Arch ]; then
+  echo "Git Directory exists."
+else
+    git clone https://github.com/haya123421321/Arch.git
+fi
 # Copy configuration files to the appropriate locations
 echo "$password" | sudo -S cat Arch/configs/zshrc > ~/.zshrc
 echo "$password" | sudo -S cat Arch/configs/p10k.zsh > ~/.p10k.zsh
@@ -81,7 +84,11 @@ echo 'require("Tepz")' > ~/.config/nvim/init.lua
 rm -rf Nvim
 
 # Get the Scripts folder
-git clone https://github.com/haya123421321/Scripts
+if [ -d Scripts ]; then
+  echo "Git Directory exists."
+else
+    git clone https://github.com/haya123421321/Scripts
+fi
 for file in ~/Scripts/Youtube/*.py;do ln -sf $file ~/Scripts/Scripts/$(basename $file);done
 for file in ~/Scripts/Viewer/*.py;do ln -sf $file ~/Scripts/Scripts/$(basename $file);done
 cd ~/Scripts/GoScripts/
