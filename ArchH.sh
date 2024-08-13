@@ -79,8 +79,12 @@ echo "Granted write permissions to Python site-packages directory"
 # Clone a GitHub repository containing some custom configurations
 echo "Cloning Github repository"
 cd ~
-git clone --recurse-submodules https://github.com/haya123421321/Arch.git  
-echo "Cloned custom configurations from GitHub repository"
+if [ -d Arch ]; then
+  echo "Git Directory exists."
+else
+    git clone --recurse-submodules https://github.com/haya123421321/Arch.git
+    echo "Cloned custom configurations from GitHub repository"
+fi
 
 # Copy the custom Zsh configuration and powerlevel10k theme to the user's home directory
 echo "$password" | sudo -S cat Arch/configs/zshrc > ~/.zshrc
