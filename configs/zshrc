@@ -141,3 +141,4 @@ fi
 
 alias vi=nvim
 alias viconf="nvim ~/.config/nvim/lua/Tepz"
+export QT_QPA_PLATFORMTHEME=qt6ct
