@@ -2,6 +2,9 @@
 opacity = 0.95
 dimensions = { columns = 110, lines = 28 }
 
+[font]
+normal = { family = "Hack", style = "Regular" }
+
 [shell]
 program = "tmux"
 
