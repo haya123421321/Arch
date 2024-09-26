@@ -58,6 +58,10 @@ konsave -a Main
 mkdir -p ~/.config/dunst
 cp Arch/configs/dunstrc ~/.config/dunst
 
+# Rofi
+mkdir -p ~/.config/rofi
+cp Arch/configs/config.rasi ~/.config/rofi
+
 # i3 stuff
 mkdir -p ~/.config/i3/
 cp Arch/configs/i3_config ~/.config/i3/config
