@@ -52,9 +52,12 @@ echo 'export PATH=$PATH:/usr/sbin:$(echo ~)/Scripts/Scripts' >> ~/.zshrc
 cat .dotfiles/.p10k.zsh > ~/.p10k.zsh
 cat .dotfiles/.tmux.conf ~/.tmux.conf
 cp -rf .dotfiles/config/. .config/
+
+# Sublime
 mkdir -p ~/.config/sublime-text/Packages/User
-cat Arch/configs/Keybinds.txt > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
-cat Arch/configs/Settings.txt > .config/sublime-text/Packages/User/Preferences.sublime-settings
+cat Arch/configs/Default (Linux).sublime-keymap > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
+cat Arch/configs/Preferences.sublime-settings > '.config/sublime-text/Packages/User/Preferences.sublime-settings'
+
 mkdir -p ~/.local/share/icons
 mkdir -p ~/.local/share/applications
 cp Arch/configs/viewer.jpg ~/.local/share/icons
