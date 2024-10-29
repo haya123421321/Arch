@@ -58,43 +58,11 @@ mkdir -p ~/.config/sublime-text/Packages/User
 cat Arch/configs/Default (Linux).sublime-keymap > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
 cat Arch/configs/Preferences.sublime-settings > '.config/sublime-text/Packages/User/Preferences.sublime-settings'
 
-mkdir -p ~/.local/share/icons
-mkdir -p ~/.local/share/applications
-cp Arch/configs/viewer.jpg ~/.local/share/icons
-mkdir -p ~/.local/share/wallpapers/MnEGJu-Dracula-Wallpapers/ && cp Arch/configs/dracula-purplish.png ~/.local/share/wallpapers/MnEGJu-Dracula-Wallpapers/
-mkdir -p ~/.config/konsave/profiles && cp -r Arch/configs/Main ~/.config/konsave/profiles/
-plasma-apply-wallpaperimage ~/.local/share/wallpapers/MnEGJu-Dracula-Wallpapers/dracula-purplish.png
-konsave -a Main
-
-# Notification
-mkdir -p ~/.config/dunst
-cp Arch/configs/dunstrc ~/.config/dunst
-
-# Rofi
-mkdir -p ~/.config/rofi
-cp Arch/configs/config.rasi ~/.config/rofi
-
-# i3 stuff
-mkdir -p ~/.config/i3/
-cp Arch/configs/i3_config ~/.config/i3/config
-cp -r Arch/configs/i3blocks ~/.config/
-
 # Change default shell to Zsh
 printf "$password\n/bin/zsh" | chsh
 
-# Alacritty
-mkdir ~/.config/alacritty
-cp Arch/configs/alacritty.toml ~/.config/alacritty 
-
 # Clean up cloned repository
-echo "$password" | sudo -S rm -R Arch
-
-# Neovim setup
-git clone https://github.com/haya123421321/Nvim
-mkdir ~/.config/nvim
-mv Nvim/lua ~/.config/nvim
-echo 'require("Tepz")' > ~/.config/nvim/init.lua
-rm -rf Nvim
+echo "$password" | sudo -S rm -R Arch .dotfiles
 
 # Get the Scripts folder
 if [ -d Scripts ]; then
