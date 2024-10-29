@@ -39,10 +39,19 @@ if [ -d Arch ]; then
 else
     git clone https://github.com/haya123421321/Arch.git
 fi
+
+if [ -d .dotfiles ]; then
+  echo "Git Directory exists."
+else
+    clone git@github.com:haya123421321/.dotfiles.git
+fi
+
 # Copy configuration files to the appropriate locations
-echo "$password" | sudo -S cat Arch/configs/zshrc > ~/.zshrc
-echo "$password" | sudo -S cat Arch/configs/p10k.zsh > ~/.p10k.zsh
+cat .dotfiles/.zshrc > ~/.zshrc
 echo 'export PATH=$PATH:/usr/sbin:$(echo ~)/Scripts/Scripts' >> ~/.zshrc
+cat .dotfiles/.p10k.zsh > ~/.p10k.zsh
+cat .dotfiles/.tmux.conf ~/.tmux.conf
+cp -rf .dotfiles/config/. .config/
 mkdir -p ~/.config/sublime-text/Packages/User
 cat Arch/configs/Keybinds.txt > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
 cat Arch/configs/Settings.txt > .config/sublime-text/Packages/User/Preferences.sublime-settings
@@ -73,9 +82,6 @@ printf "$password\n/bin/zsh" | chsh
 # Alacritty
 mkdir ~/.config/alacritty
 cp Arch/configs/alacritty.toml ~/.config/alacritty 
-
-# Tmux
-cp Arch/configs/.tmux.conf ~
 
 # Clean up cloned repository
 echo "$password" | sudo -S rm -R Arch
