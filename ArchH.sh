@@ -89,7 +89,6 @@ fi
 # Copy the custom Zsh configuration and powerlevel10k theme to the user's home directory
 echo "$password" | sudo -S cat Arch/configs/zshrc > ~/.zshrc
 echo "$password" | sudo -S cat Arch/configs/p10k.zsh > ~/.p10k.zsh
-echo 'export PATH=$PATH:/usr/sbin:$(echo ~)/Tepz/MyScripts:$(echo ~)/.local/bin' >> ~/.zshrc
 echo "Copied custom Zsh configuration and powerlevel10k theme"
 
 # Copy other custom configurations to their respective directories
