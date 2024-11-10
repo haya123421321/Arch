@@ -61,6 +61,8 @@ echo "$password" | sudo -S chown -R $User:$User ./yay-git
 cd /opt/yay-git
 yes | makepkg -si  
 echo "$password" | sudo -S rm -R /opt/yay-git
+
+# Install AUR packages using yay
 echo "$password" | yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 sddm-slice-git libunity konsave
 echo "Cloned yay AUR helper and installed some packages from AUR"
 
@@ -86,12 +88,27 @@ else
     echo "Cloned custom configurations from GitHub repository"
 fi
 
-# Copy the custom Zsh configuration and powerlevel10k theme to the user's home directory
-echo "$password" | sudo -S cat Arch/configs/zshrc > ~/.zshrc
-echo "$password" | sudo -S cat Arch/configs/p10k.zsh > ~/.p10k.zsh
+if [ -d .dotfiles ]; then
+  echo "Git Directory exists."
+else
+    clone git@github.com:haya123421321/.dotfiles.git
+fi
+
+# Copy the dotfiles
+cat .dotfiles/.zshrc > ~/.zshrc
+cat .dotfiles/.p10k.zsh > ~/.p10k.zsh
+cat .dotfiles/.tmux.conf ~/.tmux.conf
+cp -rf .dotfiles/config/. .config/
+rm -rf .dotfiles
 echo "Copied custom Zsh configuration and powerlevel10k theme"
 
-# Copy other custom configurations to their respective directories
+# Sublime
+mkdir -p ~/.config/sublime-text/Packages/User
+cat Arch/configs/Keybinds.txt > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
+cat Arch/configs/Settings.txt > .config/sublime-text/Packages/User/Preferences.sublime-settings
+echo "Copied configuration files for Sublime Text"
+
+# Copy other custom scripts and wordlists
 echo "$password" | sudo -S cp -r Arch/Tepz .
 echo "$password" | sudo -S mv Arch/KaliLists Arch/wordlists
 echo "$password" | sudo -S mv Arch/SecLists Arch/wordlists
@@ -99,24 +116,11 @@ gunzip Arch/wordlists/rockyou.txt.gz
 rm Arch/wordlists/README.md Arch/wordlists/dnsmap.txt Arch/wordlists/sqlmap.txt
 mv Arch/Command-injection-bypass Arch/wordlists/SecLists/Payloads
 sudo mv Arch/wordlists /usr/share/
-plasma-apply-lookandfeel -a org.kde.breezedark.desktop
 echo "Moved custom configurations to their respective locations"
 
-mkdir ~/.config/terminator && cat Arch/configs/Terminator_config.txt > ~/.config/terminator/config
-mkdir -p ~/.config/sublime-text/Packages/User
-mkdir ~/.local/share/wallpapers && cp Arch/configs/Wallpaper.jpg ~/.local/share/wallpapers/
-mkdir -p ~/.config/konsave/profiles && cp -r Arch/configs/MainH ~/.config/konsave/profiles/
-
-konsave -a MainH
-plasma-apply-wallpaperimage ~/.local/share/wallpapers/Wallpaper.jpg
-
-# Copy configuration files for Sublime Text
-cat Arch/configs/Keybinds.txt > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
-cat Arch/configs/Settings.txt > .config/sublime-text/Packages/User/Preferences.sublime-settings
-echo "Copied configuration files for Sublime Text"
+cp Arch/configs/Wallpaper.jpg ~/Pictures/Wallpaper.jpeg
 
 for file in $(ls /opt/metasploit/tools/exploit/*.rb);do echo "$password" | sudo -S ln -sf $file /usr/bin/$(basename $file);done
-
 
 # Change the default shell to Zsh for the current user
 echo 'Changing shell to zsh'
@@ -127,20 +131,9 @@ echo "Changed default shell to Zsh"
 echo "$password" | sudo -S usermod -a -G wireshark $User
 echo "Added group 'wireshark' to user"
 
-# Alacritty
-mkdir ~/.config/alacritty
-cp Arch/configs/alacritty.toml ~/.config/alacritty 
-
 # Remove the cloned GitHub repository
 echo "$password" | sudo -S rm -R Arch
 echo "Removed cloned GitHub repository"
-
-# Neovim setup
-git clone https://github.com/haya123421321/Nvim
-mkdir ~/.config/nvim/lua -p
-cp -r Nvim/lua/Tepz ~/.config/nvim/lua
-echo 'require("Tepz")' > ~/.config/nvim/init.lua
-rm -rf Nvim
 
 # Create a note for firefox extensions
 echo "Get Bitwarden, FoxyProxy and Hacktools" > Firefox_extension
