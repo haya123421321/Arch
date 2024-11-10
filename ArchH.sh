@@ -49,10 +49,6 @@ else
 	echo "Not a VM"
 fi
 
-# Clear font cache
-fc-cache
-echo "Cleared font cache"
-
 # Clone yay AUR helper from Arch User Repository and install it
 echo "Installing yay"
 cd /opt
