@@ -104,8 +104,8 @@ echo "Copied custom Zsh configuration and powerlevel10k theme"
 
 # Sublime
 mkdir -p ~/.config/sublime-text/Packages/User
-cat Arch/configs/Keybinds.txt > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
-cat Arch/configs/Settings.txt > .config/sublime-text/Packages/User/Preferences.sublime-settings
+cat Arch/configs/Default (Linux).sublime-keymap > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
+cat Arch/configs/Preferences.sublime-settings > '.config/sublime-text/Packages/User/Preferences.sublime-settings'
 echo "Copied configuration files for Sublime Text"
 
 # Copy other custom scripts and wordlists
