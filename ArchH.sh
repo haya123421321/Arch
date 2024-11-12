@@ -32,7 +32,7 @@ echo "Executed BlackArch bootstrap script"
 rm strap.sh
 echo "Removed BlackArch bootstrap script"
 
-echo "$password" | sudo -S pacman -S git alacritty xclip rofi adobe-source-code-pro-fonts noto-fonts-emoji ttf-hack neovim tmux firefox sddm base noto-fonts-emoji python-pipx mlocate spike-fuzzer wpscan gnu-netcat cewl crunch ttf-dejavu sqlitebrowser vlc base-devel fontconfig shotwell dolphin binutils linux-headers whois zsh gcc enum4linux make p7zip zsh-completions zsh-syntax-highlighting openvpn nmap freerdp wireshark-qt aircrack-ng wget gdb vim man sqlmap python2 nikto nfs-utils ruby-irb terminator gobuster binwalk steghide perl-image-exiftool inetutils curlftpfs burpsuite john exploitdb metasploit ffuf hydra hashcat python-pip python2-pip hashid net-tools --noconfirm  
+echo "$password" | sudo -S pacman -S git alacritty xclip rofi ttf-font-awesome adobe-source-code-pro-fonts noto-fonts-emoji ttf-hack neovim tmux firefox sddm base noto-fonts-emoji python-pipx mlocate spike-fuzzer wpscan gnu-netcat cewl crunch ttf-dejavu sqlitebrowser vlc base-devel fontconfig shotwell dolphin binutils linux-headers whois zsh gcc enum4linux make p7zip zsh-completions zsh-syntax-highlighting openvpn nmap freerdp wireshark-qt aircrack-ng wget gdb vim man sqlmap python2 nikto nfs-utils ruby-irb terminator gobuster binwalk steghide perl-image-exiftool inetutils curlftpfs burpsuite john exploitdb metasploit ffuf hydra hashcat python-pip python2-pip hashid net-tools --noconfirm  
 echo "Updated and installed packages from official repositories"
 
 echo "$password" | sudo -S pacman -Rsn lightdm --noconfirm  
