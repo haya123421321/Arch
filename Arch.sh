@@ -51,6 +51,7 @@ cat .dotfiles/.zshrc > ~/.zshrc
 echo 'export PATH=$PATH:/usr/sbin:$(echo ~)/Scripts/Scripts' >> ~/.zshrc
 cat .dotfiles/.p10k.zsh > ~/.p10k.zsh
 cat .dotfiles/.tmux.conf ~/.tmux.conf
+mkdir ~/Pictures
 cp .dotfiles/Wallpaper.jpeg ~/Pictures/
 cp -rf .dotfiles/config/. .config/
 
