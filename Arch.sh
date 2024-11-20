@@ -24,7 +24,7 @@ fc-cache
 # Install yay AUR helper
 echo "$password" | sudo -S useradd -m temp
 echo "$password" | sudo -S bash -c 'echo "temp ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers'
-echo "$password" | sudo -S -u temp -H bash -c "cd ~;git clone https://aur.archlinux.org/yay-git.git;cd yay-git;makepkg --noconfirm -si"
+echo "$password" | sudo -S -u temp -H bash -c "cd ~;git clone https://aur.archlinux.org/yay-git.git;cd yay-git;makepkg --noconfirm -si > /dev/null"
 echo "$password" | sudo -S userdel -r temp
 echo "$password" | sudo -S sed -i "/temp ALL=(ALL:ALL) NOPASSWD: ALL/d" /etc/sudoers
 
