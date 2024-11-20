@@ -57,8 +57,8 @@ cp -rf .dotfiles/config/. .config/
 
 # Sublime
 mkdir -p ~/.config/sublime-text/Packages/User
-cat Arch/configs/Default (Linux).sublime-keymap > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
-cat Arch/configs/Preferences.sublime-settings > '.config/sublime-text/Packages/User/Preferences.sublime-settings'
+cat 'Arch/configs/Default (Linux).sublime-keymap' > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
+cat 'Arch/configs/Preferences.sublime-settings' > '.config/sublime-text/Packages/User/Preferences.sublime-settings'
 
 # Change default shell to Zsh
 printf "$password\n/bin/zsh" | chsh
