@@ -51,12 +51,11 @@ fi
 
 # Clone yay AUR helper from Arch User Repository and install it
 echo "Installing yay"
-cd /opt
-echo "$password" | sudo -S git clone https://aur.archlinux.org/yay-git.git  
-echo "$password" | sudo -S chown -R $User:$User ./yay-git
-cd /opt/yay-git
-yes | makepkg -si  
-echo "$password" | sudo -S rm -R /opt/yay-git
+echo "$password" | sudo -S useradd -m temp
+echo "$password" | sudo -S bash -c 'echo "temp ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers'
+echo "$password" | sudo -S -u temp -H bash -c "cd ~;git clone https://aur.archlinux.org/yay-git.git;cd yay-git;makepkg --noconfirm -si > /dev/null"
+echo "$password" | sudo -S userdel -r temp
+echo "$password" | sudo -S sed -i "/temp ALL=(ALL:ALL) NOPASSWD: ALL/d" /etc/sudoers
 
 # Install AUR packages using yay
 echo "$password" | yay -S --noconfirm zsh-theme-powerlevel10k-git sublime-text-4 sddm-slice-git libunity konsave
@@ -87,21 +86,21 @@ fi
 if [ -d .dotfiles ]; then
   echo "Git Directory exists."
 else
-    clone git@github.com:haya123421321/.dotfiles.git
+    git clone https://github.com/haya123421321/.dotfiles.git
 fi
 
 # Copy the dotfiles
 cat .dotfiles/.zshrc > ~/.zshrc
 cat .dotfiles/.p10k.zsh > ~/.p10k.zsh
-cat .dotfiles/.tmux.conf ~/.tmux.conf
+cat .dotfiles/.tmux.conf > ~/.tmux.conf
 cp -rf .dotfiles/config/. .config/
 rm -rf .dotfiles
 echo "Copied custom Zsh configuration and powerlevel10k theme"
 
 # Sublime
 mkdir -p ~/.config/sublime-text/Packages/User
-cat Arch/configs/Default (Linux).sublime-keymap > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
-cat Arch/configs/Preferences.sublime-settings > '.config/sublime-text/Packages/User/Preferences.sublime-settings'
+cat 'Arch/configs/Default (Linux).sublime-keymap' > '.config/sublime-text/Packages/User/Default (Linux).sublime-keymap'
+cat 'Arch/configs/Preferences.sublime-settings' > '.config/sublime-text/Packages/User/Preferences.sublime-settings'
 echo "Copied configuration files for Sublime Text"
 
 # Copy other custom scripts and wordlists
