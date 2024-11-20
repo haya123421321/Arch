@@ -113,6 +113,7 @@ mv Arch/Command-injection-bypass Arch/wordlists/SecLists/Payloads
 sudo mv Arch/wordlists /usr/share/
 echo "Moved custom configurations to their respective locations"
 
+mkdir ~/Pictures
 cp Arch/configs/Wallpaper.jpeg ~/Pictures/
 
 for file in $(ls /opt/metasploit/tools/exploit/*.rb);do echo "$password" | sudo -S ln -sf $file /usr/bin/$(basename $file);done
