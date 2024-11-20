@@ -43,7 +43,7 @@ fi
 if [ -d .dotfiles ]; then
   echo "Git Directory exists."
 else
-    git clone git@github.com:haya123421321/.dotfiles.git
+    git clone https://github.com/haya123421321/.dotfiles.git
 fi
 
 # Copy configuration files to the appropriate locations
