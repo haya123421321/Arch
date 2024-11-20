@@ -22,11 +22,10 @@ echo "$password" | sudo -S pacman -S i3 dmenu dunst ttf-font-awesome xclip rofi 
 fc-cache
 
 # Install yay AUR helper
-cd /opt
-echo "$password" | sudo -S git clone https://aur.archlinux.org/yay-git.git
-echo "$password" | sudo -S chown -R $User:$User ./yay-git
-cd /opt/yay-git
-yes | makepkg -si > /dev/null 
+echo "$password" | sudo -S useradd -m temp
+echo "$password" | sudo -S echo "temp ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers
+echo "$password" | sudo -u temp -H bash -c "cd ~;git clone https://aur.archlinux.org/yay-git.git;cd yay-git;makepkg -si"
+echo "$password" | sudo -S userdel -r temp
 
 # Install AUR packages using yay
 echo "$password" | yay -S --noconfirm autotiling zsh-theme-powerlevel10k-git sublime-text-4 freedownloadmanager konsave libunity google-chrome dracula-kde-theme-git
