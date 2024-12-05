@@ -7,6 +7,16 @@ fi
 
 # Prompt the user for the sudo password
 read -p "Type your password for sudo: " password
+while true; do
+    read -p "do you wanna setup for laptop or desktop, type d for desktop and l for laptop? [d/l] " laptop_mode
+    echo $laptop_mode
+
+    if [[ "$laptop_mode" == "d" ]] || [[ "$laptop_mode" == "l" ]]; then
+        break
+    else
+        echo "Invalid choice. Please enter 'd' or 'l'."
+    fi
+done
 
 # Get the current user
 User=$(whoami)
