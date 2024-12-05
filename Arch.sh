@@ -76,6 +76,16 @@ printf "$password\n/bin/zsh" | chsh
 # Clean up cloned repository
 echo "$password" | sudo -S rm -R Arch .dotfiles
 
+if [[ $laptop_mode == "l" ]];then
+    echo "$password" | sudo -S sh -c 'echo "HandlePowerKey=ignore" >> /etc/systemd/logind.conf'
+    echo "$password" | sudo -S sh -c 'echo "HandleSuspendKey=ignore" >> /etc/systemd/logind.conf'
+    echo "$password" | sudo -S sh -c 'echo "HandleHibernateKey=ignore" >> /etc/systemd/logind.conf'
+
+    echo "bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%" >> ~/.config/i3/config
+    echo "bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-" >> ~/.config/i3/config
+
+fi
+
 # Get the Scripts folder
 if [ -d Scripts ]; then
   echo "Git Directory exists."
