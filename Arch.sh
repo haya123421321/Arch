@@ -235,7 +235,23 @@ Icon=$(echo ~)/.local/share/icons/viewer.jpg\n
 Type=Application\n
 Categories=Utility;\n
 "
-
+settingsini="[Settings]\n
+gtk-application-prefer-dark-theme=true\n
+gtk-button-images=true\n
+gtk-cursor-theme-name=breeze_cursors\n
+gtk-cursor-theme-size=24\n
+gtk-decoration-layout=icon:minimize,maximize,close\n
+gtk-enable-animations=true\n
+gtk-font-name=Noto Sans,  10\n
+gtk-icon-theme-name=breeze-dark\n
+gtk-menu-images=true\n
+gtk-modules=window-decorations-gtk-module:colorreload-gtk-module\n
+gtk-primary-button-warps-slider=true\n
+gtk-sound-theme-name=ocean\n
+gtk-theme-name=Breeze\n
+gtk-toolbar-style=3\n
+gtk-xft-dpi=98304\n
+"
 
 echo -e "$anichecker" > /tmp/anichecker_temp
 sudo mv /tmp/anichecker_temp /etc/systemd/system/anichecker.service
@@ -247,6 +263,9 @@ echo -e "$FDM" > ~/.config/autostart/FDM.desktop
 echo -e "$steam" > ~/.config/autostart/steam.desktop
 echo -e "$spotify" > ~/.config/autostart/spotify.desktop
 echo -e "$nvidia" > ~/.config/autostart/'NVIDIA X Server Settings.desktop'
+
+mkdir ~/.config/gtk-3.0
+echo -e "$settingsini" > ~/.config/gtk-3.0/settings.ini
 
 update-desktop-database ~/.local/share/applications
 
